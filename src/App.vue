@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <hero></hero>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import Hero from './components/Hero'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    Hero
   }
 }
 </script>
@@ -31,10 +30,5 @@ html, body {
   text-align: center;
   color: #FFF;
   height: 100%;
-
-  background: #333;
-  background: -webkit-linear-gradient(left top, #024, #402);
-  background: -moz-linear-gradient(bottom right, #024, #402);
-  background: linear-gradient(to bottom right, #024, #402);
 }
 </style>
