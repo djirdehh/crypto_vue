@@ -93,7 +93,7 @@ export default {
   }
 }
 
-/* WebKit and Opera browsers */ @-webkit-keyframes spinner { 
+@-webkit-keyframes spinner { 
     from 
     { 
         -webkit-transform: rotateY(0deg); 
@@ -101,7 +101,7 @@ export default {
     to { 
         -webkit-transform: rotateY(-360deg); 
     } 
-} /* all other browsers */ 
+}
 @keyframes spinner { 
     from { 
         -moz-transform: rotateY(0deg); 

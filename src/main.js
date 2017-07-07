@@ -2,9 +2,12 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VueResource from 'vue-resource'
+import 'vue-awesome/icons'
+import Icon from 'vue-awesome/components/Icon'
 import App from './App'
 
 Vue.use(VueResource)
+Vue.component('icon', Icon)
 
 Vue.config.productionTip = false
 
