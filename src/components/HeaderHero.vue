@@ -3,9 +3,9 @@
     <header class="nav">
       <div class="container">
         <div class="nav-left">
-          <a class="nav-item">
-            <img src="/static/app_logo.png" class="app-logo" /> <p class="app-logo-name">Crypto-<span>Vuew</span></p>
-          </a>
+          <router-link to="/" class="nav-item">
+            <img src="/static/app_logo.png" class="app-logo" /> <p class="app-logo-name">Crypto<span>Vue</span></p>
+          </router-link>
         </div>
         <span class="nav-toggle">
           <span></span>
@@ -41,7 +41,7 @@ export default {
     overflow-y: hidden;
 
     .app-logo {
-      max-height: 65px;
+      max-height: 35px;
     }
     .app-logo-name {
       font-size: 18px;
