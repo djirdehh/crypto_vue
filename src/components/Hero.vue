@@ -1,7 +1,7 @@
 <template>
   <section class="hero is-success is-fullheight">
     <headerHero></headerHero>
-    <bodyHero></bodyHero>
+    <router-view></router-view>
     <footerHero></footerHero>
   </section>
 </template>
@@ -9,14 +9,12 @@
 <script>
 import HeaderHero from './HeaderHero'
 import FooterHero from './FooterHero'
-import BodyHero from './BodyHero'
 
 export default {
   name: 'hero',
   components: {
     HeaderHero,
-    FooterHero,
-    BodyHero
+    FooterHero
   }
 }
 </script>

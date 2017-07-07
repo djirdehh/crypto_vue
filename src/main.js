@@ -5,6 +5,7 @@ import VueResource from 'vue-resource'
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
 import App from './App'
+import router from './routes.js'
 
 Vue.use(VueResource)
 Vue.component('icon', Icon)
@@ -14,6 +15,6 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  template: '<App/>',
-  components: { App }
+  router: router,
+  render: h => h(App)
 })
