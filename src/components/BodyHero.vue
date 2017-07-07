@@ -63,8 +63,20 @@ export default {
 .card {
   background-color: initial;
   position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 50px 5px rgba(0,0,0,.25);
+  
+  &:hover {
+    border-radius: 4px;
+    box-shadow: 0 0 5px 0 #fd6721;
+    transition: .5s;
+  }
 
   .card-image {
+    .image {
+      top: -15px;
+    }
+
     .cryptoCurrency-image {
       -webkit-animation-name: spinner; 
       -webkit-animation-timing-function: linear; 
@@ -86,7 +98,7 @@ export default {
 
     .title {
       position: absolute;
-      bottom: 10%;
+      bottom: 20%;
       left: 0;
       right: 0;
     }
