@@ -2,49 +2,51 @@
   <div>
     <div class="columns" style="margin: 0px 10px">
       <div v-for="cryptoCurrency in firstFiveCryptoCurrencies" class="column">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img :src="`/static/${cryptoCurrency.id}_logo.png`">
-            </figure>
+        <router-link to="/selected" @click.native="selectCryptoCurrency(cryptoCurrency)">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img :src="`/static/${cryptoCurrency.id}_logo.png`">
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-5">{{ cryptoCurrency.name }}</p>
+            </div>
           </div>
-          <div class="card-content">
-            <p class="title is-5">{{ cryptoCurrency.name }}</p>
-          </div>
-        </div>
+        </router-link>
       </div>
     </div>
     <div class="columns" style="margin: 0px 10px">
       <div v-for="cryptoCurrency in secondFiveCryptoCurrencies" class="column">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img :src="`/static/${cryptoCurrency.id}_logo.png`">
-            </figure>
+        <router-link to="/selected" @click.native="selectCryptoCurrency(cryptoCurrency)">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img :src="`/static/${cryptoCurrency.id}_logo.png`">
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-5">{{ cryptoCurrency.name }}</p>
+            </div>
           </div>
-          <div class="card-content">
-            <p class="title is-5">{{ cryptoCurrency.name }}</p>
-          </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { EventBus } from '../../event-bus.js'
+
 export default {
+  props: {},
   name: 'bodyHero',
   data () {
     return {
       cryptoCurrencies: [],
       firstFiveCryptoCurrencies: [],
-      secondFiveCryptoCurrencies: []
-    }
-  },
-  methods: {
-    addImageAndDescription (cryptoCurrency) {
-      cryptoCurrency.image = `${cryptoCurrency.id}_image`
-      cryptoCurrency.description = `EEE`
+      secondFiveCryptoCurrencies: [],
+      selectedCryptoCurrency: {}
     }
   },
   created () {
@@ -55,6 +57,16 @@ export default {
         this.firstFiveCryptoCurrencies = this.cryptoCurrencies.slice(0, 5)
         this.secondFiveCryptoCurrencies = this.cryptoCurrencies.slice(5)
       })
+  },
+  methods: {
+    addImageAndDescription (cryptoCurrency) {
+      cryptoCurrency.image = `${cryptoCurrency.id}_image`
+      cryptoCurrency.description = `EEE`
+    },
+    selectCryptoCurrency (cryptoCurrency) {
+      this.selectCryptoCurrency = cryptoCurrency
+      EventBus.$emit('cryptoCurrencySelected', cryptoCurrency)
+    }
   }
 }
 </script>

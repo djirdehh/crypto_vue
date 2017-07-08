@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Hero from './components/Hero.vue'
-import IntroHero from './components/body/IntroHero.vue'
 import BodyHero from './components/body/BodyHero.vue'
+import SelectedHero from './components/body/SelectedHero.vue'
 
 Vue.use(VueRouter)
 
@@ -14,11 +14,11 @@ export default new VueRouter({
       children: [
         {
           path: '',
-          component: IntroHero
+          component: BodyHero
         },
         {
-          path: 'main',
-          component: BodyHero
+          path: 'selected',
+          component: SelectedHero
         }
       ]
     }
