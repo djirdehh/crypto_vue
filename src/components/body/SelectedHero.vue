@@ -33,7 +33,7 @@
       </div>
       <div class="price-section">
         <p class="price-tag">Current Price</p>
-        <p class="price-amount">$ {{ selectedCryptoCurrency.price_usd }} 
+        <p class="price-amount">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedPrice }} 
           <span :class="{'positive-percent-change': positivePercentChange, 'negative-percent-change': negativePercentChange}">
             ({{ selectedCryptoCurrency.percent_change_24h }}%)
           </span>
@@ -41,11 +41,11 @@
       </div>
       <div class="price-section">
         <p class="price-tag">Circulating Supply</p>
-        <p class="price-amount">{{ selectedCryptoCurrency.available_supply }} {{ selectedCryptoCurrency.symbol }}</p>
+        <p class="price-amount">{{ selectedCryptoCurrency.selectedSupply }} {{ selectedCryptoCurrency.symbol }}</p>
       </div>
       <div class="price-section">
         <p class="price-tag">Market Cap</p>
-        <p class="price-amount">$ {{ selectedCryptoCurrency.market_cap_usd }} </p>
+        <p class="price-amount">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedMarketCap }} </p>
       </div>
     </div>
   </div>
@@ -73,9 +73,9 @@ export default {
         this.negativePercentChange = true
         cryptoCurrency.percent_change_24h = cryptoCurrency.percent_change_24h.replace(/^-/, '')
       }
-      cryptoCurrency.price_usd = Number(cryptoCurrency.price_usd).toFixed(2)
-      cryptoCurrency.available_supply = Number(cryptoCurrency.available_supply).toLocaleString()
-      cryptoCurrency.market_cap_usd = Number(cryptoCurrency.market_cap_usd).toLocaleString()
+      cryptoCurrency.selectedPrice = Number(cryptoCurrency.price_usd).toFixed(2)
+      cryptoCurrency.selectedSupply = Number(cryptoCurrency.available_supply).toLocaleString()
+      cryptoCurrency.selectedMarketCap = Number(cryptoCurrency.market_cap_usd).toLocaleString()
       this.selectedCryptoCurrency = cryptoCurrency
     })
   },
@@ -88,7 +88,12 @@ export default {
     },
     selectFiatCurrency (fiatCurrency) {
       this.selectedFiatCurrency = fiatCurrency
-      this.toggleDropDown()
+      this.$http.get(`https://api.coinmarketcap.com/v1/ticker/${this.selectedCryptoCurrency.id}/?convert=${this.selectedFiatCurrency}`)
+        .then(cryptoCurrency => {
+          this.toggleDropDown()
+          this.selectedCryptoCurrency.selectedPrice = Number(cryptoCurrency.body[0]['price_' + this.selectedFiatCurrency.toLowerCase()]).toFixed(2)
+          this.selectedCryptoCurrency.selectedMarketCap = Number(cryptoCurrency.body[0]['market_cap_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString()
+        })
     }
   }
 }

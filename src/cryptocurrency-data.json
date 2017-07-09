@@ -64,5 +64,11 @@
       "website": "https://stratisplatform.com/",
       "paper": "https://stratisplatform.com/files/Stratis_Whitepaper.pdf",
       "github": "https://github.com/stratisproject"
+   },
+   "bitshares": {
+   "description": "",
+   "website": "",
+   "paper": "",
+   "github": ""
    }
 }
