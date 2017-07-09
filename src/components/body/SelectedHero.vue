@@ -18,6 +18,19 @@
       </div>
     </div>
     <div class="column information-section">
+      <div class="dropdown-section">
+        <div class="control">
+          <button class="button" type="button" @click="toggleDropDown">
+            {{ selectedFiatCurrency }}
+          </button>
+
+          <div class="box dropdown" :class="{'is-open': dropDownOpen}">
+            <ul>
+              <li v-for="fiatCurrency in fiatCurrencies"><a class="nav-item" @click="selectFiatCurrency(fiatCurrency)">{{ fiatCurrency }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <div class="price-section">
         <p class="price-tag">Current Price</p>
         <p class="price-amount">$ {{ selectedCryptoCurrency.price_usd }} 
@@ -46,8 +59,11 @@ export default {
   data () {
     return {
       selectedCryptoCurrency: {},
+      selectedFiatCurrency: 'USD',
+      fiatCurrencies: [ 'AUD', 'BRL', 'CAD', 'CHF', 'CNY', 'EUR', 'GBP', 'HKD', 'IDR', 'INR', 'JPY', 'KRW', 'MXN', 'RUB' ],
       positivePercentChange: true,
-      negativePercentChange: false
+      negativePercentChange: false,
+      dropDownOpen: false
     }
   },
   created () {
@@ -65,6 +81,15 @@ export default {
   },
   beforeDestroy () {
     EventBus.$off('cryptoCurrencySelected')
+  },
+  methods: {
+    toggleDropDown () {
+      this.dropDownOpen = !this.dropDownOpen
+    },
+    selectFiatCurrency (fiatCurrency) {
+      this.selectedFiatCurrency = fiatCurrency
+      this.toggleDropDown()
+    }
   }
 }
 </script>
@@ -113,7 +138,32 @@ export default {
   }
 
   .information-section {
+    position: relative;
     padding-top: 25px;
+
+    .dropdown-section {
+      position: absolute;
+      right: 100px;
+
+      .control {
+        .dropdown {
+          box-shadow: 0 0 8px #777;
+          display: none;
+          left: 0;
+          position: absolute;
+          top: 100%;
+          z-index: 1000;
+
+          &.is-open {
+            display: block;
+          }
+
+          .nav-item {
+            color: #7a7a7a;
+          }
+        }
+      }
+    }
 
     .price-section {
       text-align: left;
