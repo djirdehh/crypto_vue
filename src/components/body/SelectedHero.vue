@@ -57,6 +57,7 @@ export default {
         this.negativePercentChange = true
         cryptoCurrency.percent_change_24h = cryptoCurrency.percent_change_24h.replace(/^-/, '')
       }
+      cryptoCurrency.price_usd = Number(cryptoCurrency.price_usd).toFixed(2)
       cryptoCurrency.available_supply = Number(cryptoCurrency.available_supply).toLocaleString()
       cryptoCurrency.market_cap_usd = Number(cryptoCurrency.market_cap_usd).toLocaleString()
       this.selectedCryptoCurrency = cryptoCurrency

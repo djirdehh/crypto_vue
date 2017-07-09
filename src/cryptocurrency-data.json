@@ -1,68 +1,68 @@
 {
    "bitcoin": {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "description": "The first decentraziled peer-to-peer payment network in which encryption techniques are used to regulate the generation of units of currency and verify the transfer of funds, all operating independently of a central bank.",
       "website": "https://bitcoin.org/en/",
       "paper": "https://bitcoin.org/bitcoin.pdf",
       "github": "https://github.com/bitcoin"
    },
    "ethereum": {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "description": "An open-source, public, blockchain-based computing platform that enables developers to build and deploy decentraziled applications. Ether (ETH), the crypto token that fuels the Ethereum network acts as a tradeable cryptocurrency and is used to pay for transaction fees and services on the network.",
       "website": "https://www.ethereum.org/",
       "paper": "https://github.com/ethereum/wiki/wiki/White-Paper",
       "github": "https://github.com/ethereum"
    },
    "ripple": {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "description": "Both a digital currency (XRP) and a distributed real-time payment protocol within which that currency is transferred. Ripple's distributed technology aims to enable banks to send real-time international payments across networks; to meet growing demands for faster, low-cost, on-demand global payment services.",
       "website": "https://ripple.com/",
       "paper": "https://ripple.com/files/ripple_consensus_whitepaper.pdf",
       "github": "https://github.com/ripple"
    },
    "litecoin": {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "description": "An open-source peer-to-peer cryptocurrency that uses the scrypt proof of work algorithm as opposed to Bitcoin's hashing algorithm. Litecoin was originally created to improve upon Bitcoin by speeding up transaction confirmations.",
       "website": "https://litecoin.org/",
       "paper": "",
       "github": "https://github.com/litecoin-project"
    },
    "ethereum-classic": {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "description": "An open-source, blockchain-based computing platform that came into existence as a result of the DAO hard-fork. Identical to Ethereum up to a certain block (block 1920000), Ethereum Classic consolidated members of the Ethereum community who rejected the fork.",
       "website": "https://ethereumclassic.github.io/",
       "paper": "https://coss.io/documents/white-papers/ethereum-classic.pdf",
       "github": "https://github.com/ethereumclassic"
    },
    "dash": {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "description": "An open-source peer-to-peer cryptocurrency that offers all the features of Bitcoin as well as other capabilities which include private transactions, instant transactions and decentralized governance.",
       "website": "https://www.dash.org/",
       "paper": "https://www.dash.org/wp-content/uploads/2015/04/Dash-WhitepaperV1.pdf",
       "github": "https://github.com/dashpay"
    },
    "nem": {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "description": "A peer-to-peer cryptocurrency (XEM) and blockchain platform that has introduced new features in blockchain technology through its proof-of-importance (POI) algorithm, encrypted messaging system, multisignature accounts and Eigentrust++ reputation system.",
       "website": "https://www.nem.io/",
       "paper": "https://www.nem.io/NEM_techRef.pdf",
       "github": "https://github.com/NemProject"
    },
    "iota": {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "description": "A new transactional settlement and data integrity layer for the Internet of Things. IOTA is based on a new distributed ledger architecture which aims to overcome inefficiencies of current Blockchain designs to introduce a new way of reaching peer-to-peer consensus.",
       "website": "https://iota.org/",
       "paper": "https://iota.org/IOTA_Whitepaper.pdf",
       "github": "https://github.com/iotaledger"
    },
    "monero": {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "description": "An open-source cryptocurrency that is heavily focused on privacy, decentralisation and scalability. Monero is based on the CryptoNote protocol and has significant algorithmic differences to Bitcoin.",
       "website": "https://getmonero.org/",
       "paper": "",
       "github": "https://github.com/iotaledger"
    },
-   "stratis": {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "website": "https://stratisplatform.com/",
-      "paper": "https://stratisplatform.com/files/Stratis_Whitepaper.pdf",
-      "github": "https://github.com/stratisproject"
-   },
    "eos": {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "description": "Software that introduces a new blockhain architecture designed to enable vertical and horizontal scaling of decentralized applications with the aim of quick and easy deployment, scalability to millions of transactions per second and elimination of user fees.",
       "website": "https://eos.io/",
       "paper": "https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md",
       "github": "https://github.com/EOSIO"
+   },
+   "stratis": {
+      "description": "A Blockchain-as-a-service (BaaS) Platform that allows corporations in the financial sector to create their custom blockchain applications with the features they require. Stratis currency (STRAT), the native currency within the platform, will be needed to create and fuel these blockchains.",
+      "website": "https://stratisplatform.com/",
+      "paper": "https://stratisplatform.com/files/Stratis_Whitepaper.pdf",
+      "github": "https://github.com/stratisproject"
    }
 }
