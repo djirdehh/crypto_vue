@@ -117,7 +117,7 @@ export default {
   }
 }
 
-@-webkit-keyframes spinner { 
+@-webkit-keyframes spinner {
     from 
     { 
         -webkit-transform: rotateY(0deg); 

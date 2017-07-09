@@ -1,6 +1,6 @@
 <template>
   <div class="hero-foot">
-    <footer class="footer">
+   <!--  <footer class="footer">
       <div class="container">
         <div class="content has-text-centered">
           <div class="footer-title">Hassan Djirdeh | © 2017 .</div>
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 
