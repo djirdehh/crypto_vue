@@ -1,0 +1,68 @@
+{
+   "bitcoin": {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "website": "https://bitcoin.org/en/",
+      "paper": "https://bitcoin.org/bitcoin.pdf",
+      "github": "https://github.com/bitcoin"
+   },
+   "ethereum": {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "website": "https://www.ethereum.org/",
+      "paper": "https://github.com/ethereum/wiki/wiki/White-Paper",
+      "github": "https://github.com/ethereum"
+   },
+   "ripple": {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "website": "https://ripple.com/",
+      "paper": "https://ripple.com/files/ripple_consensus_whitepaper.pdf",
+      "github": "https://github.com/ripple"
+   },
+   "litecoin": {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "website": "https://litecoin.org/",
+      "paper": "",
+      "github": "https://github.com/litecoin-project"
+   },
+   "ethereum-classic": {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "website": "https://ethereumclassic.github.io/",
+      "paper": "https://coss.io/documents/white-papers/ethereum-classic.pdf",
+      "github": "https://github.com/ethereumclassic"
+   },
+   "dash": {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "website": "https://www.dash.org/",
+      "paper": "https://www.dash.org/wp-content/uploads/2015/04/Dash-WhitepaperV1.pdf",
+      "github": "https://github.com/dashpay"
+   },
+   "nem": {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "website": "https://www.nem.io/",
+      "paper": "https://www.nem.io/NEM_techRef.pdf",
+      "github": "https://github.com/NemProject"
+   },
+   "iota": {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "website": "https://iota.org/",
+      "paper": "https://iota.org/IOTA_Whitepaper.pdf",
+      "github": "https://github.com/iotaledger"
+   },
+   "monero": {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "website": "https://getmonero.org/",
+      "paper": "",
+      "github": "https://github.com/iotaledger"
+   },
+   "stratis": {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "website": "https://stratisplatform.com/",
+      "paper": "https://stratisplatform.com/files/Stratis_Whitepaper.pdf",
+      "github": "https://github.com/stratisproject"
+   },
+   "eos": {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "website": "https://eos.io/",
+      "paper": "https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md",
+      "github": "https://github.com/EOSIO"
+   }
+}

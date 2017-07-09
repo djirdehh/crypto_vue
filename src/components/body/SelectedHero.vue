@@ -4,19 +4,16 @@
       <img :src="`/static/${selectedCryptoCurrency.id}_large_logo.png`" class="cryptoCurrency-image"/>
       <h1 class="cryptoCurrency-title">{{ selectedCryptoCurrency.name }}</h1>
       <span class="tag is-primary">Rank {{ selectedCryptoCurrency.rank}}</span>
-      <p class="cryptoCurrency-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat.</p>
+      <p class="cryptoCurrency-description">{{ selectedCryptoCurrency.description }}</p>
       <div class="icons-section">
         <span class="icon">
-          <icon name="link" scale="2"></icon>
+          <a :href="selectedCryptoCurrency.website" target="_blank"><icon name="link" scale="2"></icon></a>
         </span>
         <span class="icon">
-          <icon name="file-text" scale="2"></icon>
+          <a :href="selectedCryptoCurrency.paper" target="_blank"><icon name="file-text" scale="2"></icon></a>
         </span>
         <span class="icon">
-          <icon name="github" scale="2"></icon>
+          <a :href="selectedCryptoCurrency.github" target="_blank"><icon name="github" scale="2"></icon></a>
         </span>
       </div>
     </div>

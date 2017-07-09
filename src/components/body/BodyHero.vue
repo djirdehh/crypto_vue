@@ -37,6 +37,7 @@
 
 <script>
 import { EventBus } from '../../event-bus.js'
+const cryptoCurrencyData = require('../../cryptocurrency-data.json')
 
 export default {
   props: {},
@@ -61,7 +62,10 @@ export default {
   methods: {
     addImageAndDescription (cryptoCurrency) {
       cryptoCurrency.image = `${cryptoCurrency.id}_image`
-      cryptoCurrency.description = `EEE`
+      cryptoCurrency.description = cryptoCurrencyData[cryptoCurrency.id].description
+      cryptoCurrency.website = cryptoCurrencyData[cryptoCurrency.id].website
+      cryptoCurrency.paper = cryptoCurrencyData[cryptoCurrency.id].paper
+      cryptoCurrency.github = cryptoCurrencyData[cryptoCurrency.id].github
     },
     selectCryptoCurrency (cryptoCurrency) {
       this.selectCryptoCurrency = cryptoCurrency
