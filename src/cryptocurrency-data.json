@@ -66,9 +66,15 @@
       "github": "https://github.com/stratisproject"
    },
    "bitshares": {
-   "description": "",
-   "website": "",
-   "paper": "",
-   "github": ""
+      "description": "",
+      "website": "",
+      "paper": "",
+      "github": ""
+   },
+   "bitconnect": {
+      "description": "",
+      "website": "",
+      "paper": "",
+      "github": ""
    }
 }

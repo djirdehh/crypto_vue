@@ -6,13 +6,13 @@
       <span class="tag is-primary">Rank {{ selectedCryptoCurrency.rank}}</span>
       <p class="cryptoCurrency-description">{{ selectedCryptoCurrency.description }}</p>
       <div class="icons-section">
-        <span class="icon">
+        <span v-if="selectedCryptoCurrency.website" class="icon">
           <a :href="selectedCryptoCurrency.website" target="_blank"><icon name="link" scale="2"></icon></a>
         </span>
-        <span class="icon">
+        <span v-if="selectedCryptoCurrency.paper" class="icon">
           <a :href="selectedCryptoCurrency.paper" target="_blank"><icon name="file-text" scale="2"></icon></a>
         </span>
-        <span class="icon">
+        <span v-if="selectedCryptoCurrency.github" class="icon">
           <a :href="selectedCryptoCurrency.github" target="_blank"><icon name="github" scale="2"></icon></a>
         </span>
       </div>
@@ -22,6 +22,10 @@
         <div class="control">
           <button class="button" type="button" @click="toggleDropDown">
             {{ selectedFiatCurrency }}
+            <span class="arrow-icon">
+              <icon v-if="!dropDownOpen" name="caret-down"></icon>
+              <icon v-if="dropDownOpen" name="caret-up"></icon>
+            </span>
           </button>
 
           <div class="box dropdown" :class="{'is-open': dropDownOpen}">
@@ -53,14 +57,15 @@
 
 <script>
 import { EventBus } from '../../event-bus.js'
+const fiatCurrencies = [ 'AUD', 'BRL', 'CAD', 'CHF', 'CNY', 'EUR', 'GBP', 'HKD', 'IDR', 'INR', 'JPY', 'USD', 'KRW', 'MXN', 'RUB' ]
 
 export default {
   name: 'selectedHero',
   data () {
     return {
       selectedCryptoCurrency: {},
-      selectedFiatCurrency: 'USD',
-      fiatCurrencies: [ 'AUD', 'BRL', 'CAD', 'CHF', 'CNY', 'EUR', 'GBP', 'HKD', 'IDR', 'INR', 'JPY', 'KRW', 'MXN', 'RUB' ],
+      fiatCurrencies: fiatCurrencies,
+      selectedFiatCurrency: fiatCurrencies[11],
       positivePercentChange: true,
       negativePercentChange: false,
       dropDownOpen: false
@@ -91,7 +96,8 @@ export default {
       this.$http.get(`https://api.coinmarketcap.com/v1/ticker/${this.selectedCryptoCurrency.id}/?convert=${this.selectedFiatCurrency}`)
         .then(cryptoCurrency => {
           this.toggleDropDown()
-          this.selectedCryptoCurrency.selectedPrice = Number(cryptoCurrency.body[0]['price_' + this.selectedFiatCurrency.toLowerCase()]).toFixed(2)
+          this.selectedCryptoCurrency.selectedPrice = Number(cryptoCurrency.body[0]['price_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString(
+            undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
           this.selectedCryptoCurrency.selectedMarketCap = Number(cryptoCurrency.body[0]['market_cap_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString()
         })
     }
@@ -138,6 +144,15 @@ export default {
     .icons-section {
       .icon {
         margin: 0px 30px;
+        -o-transition: .5s;
+        -ms-transition: .5s;
+        -moz-transition: .5s;
+        -webkit-transition: .5s;
+        transition: .5s;
+
+        &:hover {
+          color: #fd6721;
+        }
       }
     }
   }
@@ -148,23 +163,66 @@ export default {
 
     .dropdown-section {
       position: absolute;
-      right: 100px;
+      right: 50px;
 
       .control {
+        .button {
+          width: 81px;
+          background-color: transparent;
+          color: #FFF;
+          position: relative;
+
+          &:focus {
+            border-color: #FFF;
+          }
+
+          .arrow-icon {
+            position: absolute;
+            right: 5px;
+            bottom: 1px;
+            color: #fd6721;
+
+            icon {
+              position: absolute;
+              right: 5px;
+              bottom: 1px;
+            }
+          }
+        }
+
+        .box {
+          padding: 7px;
+          background-color: transparent;
+        }
+
         .dropdown {
-          box-shadow: 0 0 8px #777;
+          box-shadow: 0 0 3px 0 #fd6721;
           display: none;
           left: 0;
           position: absolute;
           top: 100%;
           z-index: 1000;
+          height: 150px;
+          overflow-y: scroll;
+          
+          ul {
+          }
 
           &.is-open {
             display: block;
           }
 
           .nav-item {
-            color: #7a7a7a;
+            color: #FFF;
+            -o-transition: .5s;
+            -ms-transition: .5s;
+            -moz-transition: .5s;
+            -webkit-transition: .5s;
+            transition: .5s;
+
+            &:hover {
+              color: #fd6721;
+            }
           }
         }
       }
@@ -214,5 +272,15 @@ export default {
         transform: rotateY(-360deg); 
     
     } 
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #FFF;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
 </style>
