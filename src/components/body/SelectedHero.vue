@@ -1,58 +1,58 @@
 <template>
-  <div class="columns selected-section">
-    <div class="column is-7 image-section">
-      <img :src="`/static/${selectedCryptoCurrency.id}_large_logo.png`" class="cryptoCurrency-image"/>
-      <h1 class="cryptoCurrency-title">{{ selectedCryptoCurrency.name }}</h1>
-      <span class="tag is-primary">Rank {{ selectedCryptoCurrency.rank}}</span>
-      <p class="cryptoCurrency-description">{{ selectedCryptoCurrency.description }}</p>
-      <div class="icons-section">
-        <span v-if="selectedCryptoCurrency.website" class="icon">
-          <a :href="selectedCryptoCurrency.website" target="_blank"><icon name="link" scale="2"></icon></a>
-        </span>
-        <span v-if="selectedCryptoCurrency.paper" class="icon">
-          <a :href="selectedCryptoCurrency.paper" target="_blank"><icon name="file-text" scale="2"></icon></a>
-        </span>
-        <span v-if="selectedCryptoCurrency.github" class="icon">
-          <a :href="selectedCryptoCurrency.github" target="_blank"><icon name="github" scale="2"></icon></a>
-        </span>
-      </div>
-    </div>
-    <div class="column information-section">
-      <div class="dropdown-section">
-        <div class="control">
-          <button class="button" type="button" @click="toggleDropDown">
-            {{ selectedFiatCurrency }}
-            <span class="arrow-icon">
-              <icon v-if="!dropDownOpen" name="caret-down"></icon>
-              <icon v-if="dropDownOpen" name="caret-up"></icon>
-            </span>
-          </button>
-
-          <div class="box dropdown" :class="{'is-open': dropDownOpen}">
-            <ul>
-              <li v-for="fiatCurrency in fiatCurrencies"><a class="nav-item" @click="selectFiatCurrency(fiatCurrency)">{{ fiatCurrency }}</a></li>
-            </ul>
-          </div>
+    <div class="columns selected-section">
+      <div class="column is-7 image-section">
+        <img :src="`/static/${selectedCryptoCurrency.id}_large_logo.png`" class="cryptoCurrency-image"/>
+        <h1 class="cryptoCurrency-title">{{ selectedCryptoCurrency.name }}</h1>
+        <span class="tag is-primary">Rank {{ selectedCryptoCurrency.rank}}</span>
+        <p class="cryptoCurrency-description">{{ selectedCryptoCurrency.description }}</p>
+        <div class="icons-section">
+          <span v-if="selectedCryptoCurrency.website" class="icon">
+            <a :href="selectedCryptoCurrency.website" target="_blank"><icon name="link" scale="2"></icon></a>
+          </span>
+          <span v-if="selectedCryptoCurrency.paper" class="icon">
+            <a :href="selectedCryptoCurrency.paper" target="_blank"><icon name="file-text" scale="2"></icon></a>
+          </span>
+          <span v-if="selectedCryptoCurrency.github" class="icon">
+            <a :href="selectedCryptoCurrency.github" target="_blank"><icon name="github" scale="2"></icon></a>
+          </span>
         </div>
       </div>
-      <div class="price-section">
-        <p class="price-tag">Current Price</p>
-        <p class="price-amount">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedPrice }} 
-          <span :class="{'positive-percent-change': positivePercentChange, 'negative-percent-change': negativePercentChange}">
-            ({{ selectedCryptoCurrency.percent_change_24h }}%)
-          </span>
-        </p>
-      </div>
-      <div class="price-section">
-        <p class="price-tag">Circulating Supply</p>
-        <p class="price-amount">{{ selectedCryptoCurrency.selectedSupply }} {{ selectedCryptoCurrency.symbol }}</p>
-      </div>
-      <div class="price-section">
-        <p class="price-tag">Market Cap</p>
-        <p class="price-amount">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedMarketCap }} </p>
+      <div class="column information-section">
+        <div class="dropdown-section">
+          <div class="control">
+            <button class="button" type="button" @click="toggleDropDown">
+              {{ selectedFiatCurrency }}
+              <span class="arrow-icon">
+                <icon v-if="!dropDownOpen" name="caret-down"></icon>
+                <icon v-if="dropDownOpen" name="caret-up"></icon>
+              </span>
+            </button>
+
+            <div class="box dropdown" :class="{'is-open': dropDownOpen}">
+              <ul>
+                <li v-for="fiatCurrency in fiatCurrencies"><a class="nav-item" @click="selectFiatCurrency(fiatCurrency)">{{ fiatCurrency }}</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="price-section">
+          <p class="price-tag">Current Price</p>
+          <p class="price-amount">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedPrice }} 
+            <span :class="{'positive-percent-change': positivePercentChange, 'negative-percent-change': negativePercentChange}">
+              ({{ selectedCryptoCurrency.percent_change_24h }}%)
+            </span>
+          </p>
+        </div>
+        <div class="price-section">
+          <p class="price-tag">Circulating Supply</p>
+          <p class="price-amount">{{ selectedCryptoCurrency.selectedSupply }} {{ selectedCryptoCurrency.symbol }}</p>
+        </div>
+        <div class="price-section">
+          <p class="price-tag">Market Cap</p>
+          <p class="price-amount">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedMarketCap }} </p>
+        </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -107,6 +107,8 @@ export default {
 
 <style scoped lang="scss">
 .selected-section {
+  padding-top: 80px;
+
   .image-section {
     position: relative;
 

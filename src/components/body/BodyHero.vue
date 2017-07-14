@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding-top: 50px">
     <div class="columns" style="margin: 0px 10px">
       <div v-for="cryptoCurrency in firstFiveCryptoCurrencies" class="column">
         <router-link to="/selected" @click.native="selectCryptoCurrency(cryptoCurrency)">

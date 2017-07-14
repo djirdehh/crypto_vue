@@ -4,14 +4,9 @@
       <div class="container">
         <div class="nav-left">
           <router-link to="/" class="nav-item">
-            <img src="/static/app_logo.png" class="app-logo" /> <p class="app-logo-name">Crypto<span>Vue</span></p>
+            <img src="/static/app-logo.png" class="app-logo" /> <p class="app-logo-name">Crypto<span>Vue</span></p>
           </router-link>
         </div>
-        <span class="nav-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
         <div class="nav-right nav-menu">
           <span class="nav-item">
             <a class="button is-success is-inverted is-outlined" @click="toggleModal">
@@ -25,23 +20,21 @@
       <div class="modal-background" @click="toggleModal"></div>
         <div class="modal-card">
           <header class="modal-card-head">
-            <img src="/static/app_logo.png" class="modal-logo" />
-            <p class="modal-card-title">CryptoVue</p>
+            <img src="/static/app-logo.png" class="modal-logo" />
           </header>
           <section class="modal-card-body">
             <div class="content">
-              <p>Cryptocurrencies emerged in 2009 with Bitcoin and as of June 2017 - over 700 digital currencies exist with a total market capitalization greater than 100 billion USD. </p>
-              <p>CryptoVue is a real time dashboard that displays the top 10 cryptocurrencies based on
-              currency price, market captilization and overall circulating supply.</p>
-              <p>Real time cryptocurrency data was obtained from the leading cryptocurrency resource <span>CoinMarketCap</span>.</p>
+              <h3> CryptoVue </h3>
+              <p>Cryptocurrencies emerged in 2009 with the first decentralized cryptocurrency - Bitcoin. As of today - more than 700 digital currencies exist with a total market capitalization greater than 100 billion USD. </p>
+              <p>CryptoVue is a real-time dashboard that displays the top 10 cryptocurrencies based on currency price, market captilization and overall circulating supply - obtained from the leading cryptocurrency resource <span>CoinMarketCap</span>.</p>
               <h3>Vue</h3>
               <img src="/static/vue_logo.png" class="modal-body-logo" id="vue-logo" />
-              <p>As a weekend project, this application posed a great introduction in helping me understand the common concepts of Vue (reusable single-file components, vue-router, templating, etc.). Styling of the application was done with Bulma (a flexbox based CSS framework) and SASS. </p> <p>Feel free to head over to the project github page to see the entire application scaffold!</p>
+              <p>Built as a weekend project, this application was a great introduction in  understanding the common concepts of Vue (reusable single-file components, vue-router, templating, etc.). </p>
+              <p style="padding-bottom: 10px">Styling of the application was done with Bulma (a flexbox based CSS framework) and SASS. Head over to the my github page to see the entire scaffold and feel free to reach out with any comments/questions!</p>
+              <a class="button is-success" @click="toggleModal">Return</a>
             </div>
           </section>
           <footer class="modal-card-foot">
-            <a class="button is-success">Save changes</a>
-            <a class="button">Cancel</a>
           </footer>
         </div>
         <button class="modal-close is-large" @click="toggleModal"></button>
@@ -68,12 +61,17 @@ export default {
 
 <style scoped lang="scss">
 .nav {
+  -webkit-box-shadow: 0px 0px 0px 0px !important;
+  box-shadow: 0px 0px 0px 0px !important;
+  
   .nav-left {
     overflow-y: hidden;
 
     .app-logo {
       max-height: 35px;
+      padding-right: 5px;
     }
+
     .app-logo-name {
       font-size: 18px;
       color: #FFF;
@@ -81,9 +79,22 @@ export default {
       padding-top: 2px;
     }
   }
+
+  .nav-right {
+    .nav-item {
+      .button {
+        &:hover {
+          color: #fd6721;
+        }
+      }
+    }
+  }
 }
 .modal {
   .modal-card {
+    border: 1px solid #fd6721;
+    border-radius: 10px;
+
     .modal-card-head {
       display: block;
       background-color: #FFF;
@@ -105,7 +116,7 @@ export default {
 
     .modal-card-body {
       color: #000;
-      padding: 15px 30px;
+      padding: 0px 30px;
       padding-bottom: 20px;
 
       p {
@@ -116,7 +127,7 @@ export default {
         color: #fd6721;
         font-size: 20px;
         font-weight: 600;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
       }
 
       .modal-body-logo {
@@ -139,6 +150,15 @@ export default {
         -ms-transform-style: preserve-3d; 
         transform-style: preserve-3d;
       }
+
+      .is-success {
+        background-color: #fd6721;
+      }
+    }
+
+    .modal-card-foot {
+      padding-bottom: 1px;
+      background-color: #fd6721; 
     }
   }
 }

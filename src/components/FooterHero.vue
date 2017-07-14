@@ -1,8 +1,8 @@
 <template>
   <div class="hero-foot">
     <footer class="footer">
-      <div class="container">
-        <div class="content has-text-centered">
+      <div class="container" style="height: 92px">
+        <div class="content has-text-centered" v-if="showFooter">
           <div class="footer-title">Hassan Djirdeh | © 2017 .</div>
           <div class="footer-description">Built with <a href="https://vuejs.org/" class="link" target="_blank">Vue <img src="/static/vue_logo.png" class="tech-logo"></a></div>
           <div class="footer-social-media">
@@ -28,6 +28,9 @@
 <script>
 export default {
   name: 'footerHero',
+  props: {
+    showFooter: { default: false }
+  },
   data () {
     return {
     }

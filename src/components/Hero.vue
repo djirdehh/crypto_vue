@@ -2,7 +2,7 @@
   <section class="hero is-success is-fullheight">
     <headerHero></headerHero>
     <router-view></router-view>
-    <footerHero></footerHero>
+    <footerHero :showFooter="true"></footerHero>
   </section>
 </template>
 
