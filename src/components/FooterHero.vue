@@ -42,7 +42,8 @@ export default {
 .footer {
   background-color: transparent;
   padding: 3rem 1.5rem 0rem;
-  
+  position: relative;
+
   .content {
     color: #FFF;
     .footer-title {

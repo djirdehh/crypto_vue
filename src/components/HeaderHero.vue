@@ -35,6 +35,10 @@
             </div>
           </section>
           <footer class="modal-card-foot">
+            <div class="wallet-content">
+              <p class="wallet-tag" @click="displayBTC">Have spare BTC? <span v-if="showBTCWallet" class="wallet-id">12M1xfsLLg3oaPmaa8Np2THVmgKjG7uGDb</span></p>
+              <p class="wallet-tag" @click="displayETH">Have spare ETH? <span v-if="showETHWallet" class="wallet-id">0xc8D204007B241EA59e9Eac263e983CBDfb9367B4</span></p>
+            </div>
           </footer>
         </div>
         <button class="modal-close is-large" @click="toggleModal"></button>
@@ -48,12 +52,20 @@ export default {
   name: 'headerHero',
   data () {
     return {
-      modalActive: false
+      modalActive: false,
+      showBTCWallet: false,
+      showETHWallet: false
     }
   },
   methods: {
     toggleModal () {
       this.modalActive = !this.modalActive
+    },
+    displayBTC () {
+      this.showBTCWallet = true
+    },
+    displayETH () {
+      this.showETHWallet = true
     }
   }
 }
@@ -92,7 +104,6 @@ export default {
 }
 .modal {
   .modal-card {
-    border: 1px solid #fd6721;
     border-radius: 10px;
 
     .modal-card-head {
@@ -158,7 +169,32 @@ export default {
 
     .modal-card-foot {
       padding-bottom: 1px;
-      background-color: #fd6721; 
+      background-color: transparent;
+
+      .wallet-content {
+        display: block;
+        margin: 0 auto;
+        font-size: 13px;
+        padding-bottom: 15px;
+
+        .wallet-tag {
+          font-weight: 600;
+          cursor: pointer;
+          -o-transition: .5s;
+          -ms-transition: .5s;
+          -moz-transition: .5s;
+          -webkit-transition: .5s;
+          transition: .5s;
+
+          &:hover {
+            color: #fd6721;
+          }
+        }
+
+        .wallet-id {
+          color: #00d1b2;
+        }
+      }
     }
   }
 }
