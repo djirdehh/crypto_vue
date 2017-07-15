@@ -76,12 +76,22 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$small: 590px;
+$medium: 768px;
+$large: 1024px;
+
 .card {
   background-color: initial;
   position: relative;
   cursor: pointer;
   box-shadow: 0 0 50px 5px rgba(0,0,0,.25);
-  
+
+  @media screen and (max-width: $medium) {
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+  }
+
   &:hover {
     border-radius: 4px;
     box-shadow: 0 0 5px 0 #fd6721;

@@ -36,8 +36,8 @@
           </section>
           <footer class="modal-card-foot">
             <div class="wallet-content">
-              <p class="wallet-tag" @click="displayBTC">Have spare BTC? <span v-if="showBTCWallet" class="wallet-id">12M1xfsLLg3oaPmaa8Np2THVmgKjG7uGDb</span></p>
-              <p class="wallet-tag" @click="displayETH">Have spare ETH? <span v-if="showETHWallet" class="wallet-id">0xc8D204007B241EA59e9Eac263e983CBDfb9367B4</span></p>
+              <p class="wallet-tag" @click="displayBTC">BTC? <span v-if="showBTCWallet" class="wallet-id">12M1xfsLLg3oaPmaa8Np2THVmgKjG7uGDb</span></p>
+              <p class="wallet-tag" @click="displayETH">ETH? <span v-if="showETHWallet" class="wallet-id">0xc8D204007B241EA59e9Eac263e983CBDfb9367B4</span></p>
             </div>
           </footer>
         </div>

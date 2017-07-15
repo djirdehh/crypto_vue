@@ -3,7 +3,7 @@
     <footer class="footer">
       <div class="container" style="height: 92px">
         <div class="content has-text-centered" v-if="showFooter">
-          <div class="footer-title">Hassan Djirdeh | © 2017 .</div>
+          <div class="footer-title">Hassan Djirdeh | © 2017</div>
           <div class="footer-description">Built with <a href="https://vuejs.org/" class="link" target="_blank">Vue <img src="/static/vue_logo.png" class="tech-logo"></a></div>
           <div class="footer-social-media">
             <a class="icon" href="http://hassandjirdeh.com" target="_blank">
@@ -47,6 +47,8 @@ export default {
   .content {
     color: #FFF;
     .footer-title {
+      font-family: Nunito, sans-serif;
+      font-weight: 400;
     }
 
     .footer-description {
