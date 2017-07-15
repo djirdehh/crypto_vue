@@ -66,15 +66,57 @@
       "github": "https://github.com/stratisproject"
    },
    "bitshares": {
-      "description": "",
-      "website": "",
-      "paper": "",
-      "github": ""
+      "description": "BitShares offers a stack of financial services which include enabling an open, scalable decentralized exchange as well as banking on a blockchain. Built to be fast, efficient and scalable to handle tens of thousands of transactions per second that happen on a decentralized exchange.",
+      "website": "https://bitshares.org/",
+      "paper": "http://docs.bitshares.org/bitshares/papers/index.html",
+      "github": "https://github.com/bitshares"
    },
    "bitconnect": {
-      "description": "",
-      "website": "",
+      "description": "A community driven open-source cryptocurrency that allows BitConnect holders to receive interest due to helping maintain the security of the network.",
+      "website": "https://bitconnectcoin.co/",
       "paper": "",
+      "github": "https://github.com/bitconnectcoin"
+   },
+   "tether": {
+      "description": "The Tether platform is built on top of open blockchain technologies to allow users to convert fiat cash to digital currency. This is done by tethering the value of the cryptocurrency to the price of national currencies - US Dollar, the Euro and the Yen.",
+      "website": "https://tether.to/",
+      "paper": "https://bravenewcoin.com/assets/Whitepapers/Tether-White-Paper.pdf",
       "github": ""
+   },
+   "zcash": {
+      "description": "The first permissionless cryptocurrency that aims to fully protect the privacy of transactions by hiding the sender, recipient and value on the blockchain.",
+      "website": "https://z.cash/",
+      "paper": "http://zerocash-project.org/media/pdf/zerocash-extended-20140518.pdf",
+      "github": "https://github.com/zcash"
+   },
+   "antshares": {
+      "description": "China's first original and open-source public blockchain, Antshares technology aims to support multiple types of digital assets as well as allow users to establish smart contracts to enhance and enrich the functions of said digital assets.",
+      "website": "https://www.antshares.org/",
+      "paper": "https://github.com/neo-project/neo/wiki/Whitepaper-1.1",
+      "github": "https://github.com/neo-project"
+   },
+   "bytecoin-bcn": {
+      "description": "Launched in 2012, Bytecoin is an untraceable cryptocurrency that launched in 2012 that offers fee-free instant international payments, secure funds and privacy.",
+      "website": "https://bytecoin.org/",
+      "paper": "https://cryptonote.org/whitepaper.pdf",
+      "github": "https://github.com/amjuarez/bytecoin"
+   },
+   "veritaseum": {
+      "description": "A smart contracts-based, peer-to-peer wallet interface (in beta) that currently interacts with Bitcoin blockchain and is to be ported to Ethereum. Veritaseum aims to allow non-technical individuals & entities to quickly create, enter and manage smart contracts directly with others without an authoritative 3rd party.",
+      "website": "http://veritas.veritaseum.com/",
+      "paper": "",
+      "github": "https://github.com/veritaseum"
+   },
+   "steem": {
+      "description": "An incentivized, blockchain-based social media platform where users can earn the digital currency (STEEM) by upvoting, posting and sharing content",
+      "website": "https://steem.io/",
+      "paper": "https://steem.io/SteemWhitePaper.pdf",
+      "github": "https://github.com/steemit"
+   },
+   "waves": {
+      "description": "A decentralized blockchain platform focusing on custom blockchain tokens operations where token exchange facilitates fundraising, crowdfunding, and trading of financial instruments on the blockchain.",
+      "website": "https://wavesplatform.com/",
+      "paper": "https://blog.wavesplatform.com/waves-whitepaper-164dd6ca6a23",
+      "github": "https://github.com/wavesplatform/"
    }
 }
