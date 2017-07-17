@@ -31,17 +31,33 @@
               <img src="/static/vue_logo.png" class="modal-body-logo" id="vue-logo" />
               <p>Built as a weekend project, this application was a great introduction in  understanding the common concepts of Vue (reusable single-file components, vue-router, templating, etc.). </p>
               <p style="padding-bottom: 10px">Styling of the application was done with Bulma (a flexbox based CSS framework) and SASS. Head over to the my github page to see the entire scaffold and feel free to reach out with any comments/questions!</p>
-              <a class="button is-success" @click="toggleModal">Return</a>
             </div>
           </section>
           <footer class="modal-card-foot">
-            <div class="wallet-content">
-              <p class="wallet-tag" @click="displayBTC">BTC? <span v-if="showBTCWallet" class="wallet-id">12M1xfsLLg3oaPmaa8Np2THVmgKjG7uGDb</span></p>
-              <p class="wallet-tag" @click="displayETH">ETH? <span v-if="showETHWallet" class="wallet-id">0xc8D204007B241EA59e9Eac263e983CBDfb9367B4</span></p>
+            <div class="content has-text-centered">
+              <div class="footer-title">Hassan Djirdeh | © 2017</div>
+              <div class="footer-social-media">
+                <a class="icon" href="http://hassandjirdeh.com" target="_blank">
+                  <icon name="h-square" scale="2"></icon>
+                </a>
+                <a class="icon" href="https://github.com/djirdehh" target="_blank">
+                  <icon name="github-square" scale="2"></icon>
+                </a>
+                 <a class="icon" href="https://ca.linkedin.com/in/hassandjirdeh" target="_blank">
+                  <icon name="linkedin-square" scale="2"></icon>
+                </a>
+                <a class="icon" href="mailto:hassan.djirdeh@mail.utoronto.ca" target="_blank">
+                  <icon name="envelope-square" scale="2"></icon>
+                </a>
+              </div>
+              <div class="wallet-content">
+                <p class="wallet-tag" @click="displayBTC">BTC? <span v-if="showBTCWallet" class="wallet-id">12M1xfsLLg3oaPmaa8Np2THVmgKjG7uGDb</span></p>
+                <p class="wallet-tag" @click="displayETH">ETH? <span v-if="showETHWallet" class="wallet-id">0xc8D204007B241EA59e9Eac263e983CBDfb9367B4</span></p>
+              </div>
             </div>
           </footer>
+          <button class="modal-close is-large" @click="toggleModal"></button>
         </div>
-        <button class="modal-close is-large" @click="toggleModal"></button>
     </div>
   </div>
 </template>
@@ -72,6 +88,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$small: 590px;
+$medium: 768px;
+$large: 1024px;
+
 .nav {
   -webkit-box-shadow: 0px 0px 0px 0px !important;
   box-shadow: 0px 0px 0px 0px !important;
@@ -79,20 +99,33 @@ export default {
   .nav-left {
     overflow-y: hidden;
 
-    .app-logo {
-      max-height: 35px;
-      padding-right: 5px;
-    }
+    .nav-item {
+      @media screen and (max-width: $medium) {
+        padding-top: 15px;
+      }
 
-    .app-logo-name {
-      font-size: 18px;
-      color: #FFF;
-      letter-spacing: 5px;
-      padding-top: 2px;
+      .app-logo {
+        max-height: 35px;
+        padding-right: 5px;
+      }
+
+      .app-logo-name {
+        font-size: 18px;
+        color: #FFF;
+        letter-spacing: 5px;
+        padding-top: 2px;
+      }
     }
   }
 
   .nav-right {
+    @media screen and (max-width: $medium) {
+      background-color: transparent;
+      display: block;
+      top: 0;
+      left: inherit;
+    }
+
     .nav-item {
       .button {
         &:hover {
@@ -105,6 +138,7 @@ export default {
 .modal {
   .modal-card {
     border-radius: 10px;
+    max-width: 500px;
 
     .modal-card-head {
       display: block;
@@ -117,6 +151,10 @@ export default {
         display: block;
         margin: 0 auto;
         margin-bottom: 10px;
+
+        @media screen and (max-width: $medium) {
+          height: 40px;
+        }
       }
 
       .modal-card-title {
@@ -126,12 +164,13 @@ export default {
     }
 
     .modal-card-body {
+      font-family: Nunito, sans-serif;
       color: #000;
-      padding: 0px 30px;
+      padding: 0px 20px;
       padding-bottom: 20px;
 
       p {
-        font-size: 15px;
+        font-size: 13px;
       }
 
       h3 {
@@ -139,10 +178,6 @@ export default {
         font-size: 20px;
         font-weight: 600;
         margin-bottom: 10px;
-      }
-
-      .modal-body-logo {
-        height: 80px;
       }
 
       #vue-logo {
@@ -160,41 +195,99 @@ export default {
         -moz-transform-style: preserve-3d; 
         -ms-transform-style: preserve-3d; 
         transform-style: preserve-3d;
+
+        @media screen and (max-width: $medium) {
+          height: 40px;
+        }
       }
 
       .is-success {
         background-color: #fd6721;
+
+        @media screen and (max-width: $medium) {
+          display: none;
+        }
       }
     }
 
     .modal-card-foot {
+      font-family: Nunito, sans-serif;
       padding-bottom: 1px;
       background-color: transparent;
 
-      .wallet-content {
+      @media screen and (max-width: $medium) {
+        padding-top: 5px;
+      }
+
+      .content {
+        color: #FFF;
         display: block;
         margin: 0 auto;
-        font-size: 13px;
-        padding-bottom: 15px;
 
-        .wallet-tag {
-          font-weight: 600;
-          cursor: pointer;
-          -o-transition: .5s;
-          -ms-transition: .5s;
-          -moz-transition: .5s;
-          -webkit-transition: .5s;
-          transition: .5s;
+        @media screen and (max-width: $medium) {
+          display: none;
+        }
 
-          &:hover {
-            color: #fd6721;
+        .footer-title {
+          font-size: 15px;
+          font-weight: 400;
+        }
+
+        .footer-social-media {
+          height: 30px;
+          color: #fd6721;
+          
+          .icon {
+            text-decoration: none;
+            -webkit-transform: scale(0.8);
+            -moz-transform: scale(0.8);
+            -o-transfrom: scale(0.8);
+            -webkit-transition-duration: 0.5s;
+            -moz-transition-duration: 0.5s;
+            -o-transition-duration: 0.5s;
+            transition: 0.5s;
+
+            &:hover {
+              color: #4fc08d;
+            }
           }
         }
 
-        .wallet-id {
-          color: #00d1b2;
+        .wallet-content {
+          display: block;
+          margin: 0 auto;
+          font-size: 11px;
+
+          .wallet-tag {
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 0px;
+            -o-transition: .5s;
+            -ms-transition: .5s;
+            -moz-transition: .5s;
+            -webkit-transition: .5s;
+            transition: .5s;
+
+            &:hover {
+              color: #fd6721;
+            }
+          }
+
+          .wallet-id {
+            color: #00d1b2;
+          }
         }
       }
+    }
+  }
+
+  .modal-close {
+    background-color: #fd6721;
+
+    @media screen and (max-width: $medium) {
+      position: absolute;
+      top: 15px;
+      right: 5px;
     }
   }
 }

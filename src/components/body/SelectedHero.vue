@@ -1,5 +1,10 @@
 <template>
     <div class="columns selected-section">
+      <router-link to="/" class="nav-item">
+        <div class="return-action">
+          <icon name="arrow-left" class="arrow-left" height="27" width="27"></icon>
+        </div>
+      </router-link>
       <div class="column is-7 image-section">
         <img :src="`/static/${selectedCryptoCurrency.id}_large_logo.png`" class="cryptoCurrency-image"/>
         <h1 class="cryptoCurrency-title">{{ selectedCryptoCurrency.name }}</h1>
@@ -106,8 +111,28 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$small: 590px;
+$medium: 768px;
+$large: 1024px;
+
 .selected-section {
   padding-top: 80px;
+  position: relative;
+  align-items: center;
+  
+  .return-action {
+    position: absolute;
+    left: 30px;
+    color: #FFF;
+    cursor: pointer;
+    z-index: 1;
+
+    .arrow-left {
+      border-radius: 60px;
+      padding: 7px;
+      background: #fd6721;
+    }
+  }
 
   .image-section {
     position: relative;
@@ -233,6 +258,10 @@ export default {
     .price-section {
       text-align: left;
       padding: 20px 0;
+
+      @media screen and (max-width: $medium) {
+        text-align: center;
+      }
 
       .price-tag {
       }

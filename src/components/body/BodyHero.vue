@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-top: 50px">
+  <div>
     <div class="columns" style="margin: 0px 10px">
       <div v-for="cryptoCurrency in firstFiveCryptoCurrencies" class="column">
         <router-link to="/selected" @click.native="selectCryptoCurrency(cryptoCurrency)">
@@ -87,7 +87,7 @@ $large: 1024px;
   box-shadow: 0 0 50px 5px rgba(0,0,0,.25);
 
   @media screen and (max-width: $medium) {
-    max-width: 500px;
+    max-width: 300px;
     display: block;
     margin: 0 auto;
   }
