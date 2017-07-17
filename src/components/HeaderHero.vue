@@ -56,7 +56,7 @@
               </div>
             </div>
           </footer>
-          <button class="modal-close is-large" @click="toggleModal"></button>
+          <button class="modal-close is-medium" @click="toggleModal"></button>
         </div>
     </div>
   </div>
@@ -170,7 +170,11 @@ $large: 1024px;
       padding-bottom: 20px;
 
       p {
-        font-size: 13px;
+        font-size: 14px;
+
+        @media screen and (max-width: $medium) {
+          font-size: 12px;
+        }
       }
 
       h3 {
@@ -281,6 +285,9 @@ $large: 1024px;
     }
   }
 
+  .is-medium {
+
+  }
   .modal-close {
     background-color: #fd6721;
 

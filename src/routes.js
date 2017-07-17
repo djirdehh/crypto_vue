@@ -7,6 +7,7 @@ import SelectedHero from './components/body/SelectedHero.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({
+  mode: 'history',
   routes: [
     {
       path: '',
@@ -16,5 +17,8 @@ export default new VueRouter({
       path: '/selected',
       component: SelectedHero
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })

@@ -171,6 +171,11 @@ $large: 1024px;
       display: block;
       margin: 0 auto;
       padding: 20px 0 30px;
+
+      @media screen and (max-width: $medium) {
+        font-size: 12px;
+        max-width: 300px;
+      }
     }
 
     .icons-section {
@@ -280,6 +285,10 @@ $large: 1024px;
 
         .negative-percent-change {
           color: #ff3860
+        }
+
+        @media screen and (max-width: $medium) {
+          font-size: 30px;
         }
       }
     }
