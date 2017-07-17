@@ -69,7 +69,9 @@ export default {
     },
     selectCryptoCurrency (cryptoCurrency) {
       this.selectCryptoCurrency = cryptoCurrency
-      EventBus.$emit('cryptoCurrencySelected', cryptoCurrency)
+      this.$nextTick(() => {
+        EventBus.$emit('cryptoCurrencySelected', cryptoCurrency)
+      })
     }
   }
 }

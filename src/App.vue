@@ -1,17 +1,27 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <section class="hero is-success is-fullheight">
+      <headerHero></headerHero>
+      <router-view></router-view>
+      <footerHero></footerHero>
+    </section>
   </div>
 </template>
 
 <script>
+import HeaderHero from './components/HeaderHero'
+import FooterHero from './components/FooterHero'
 
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    HeaderHero,
+    FooterHero
+  }
 }
 </script>
 
-<style lang="css">
+<style scoped lang="scss">
 @import '../node_modules/bulma/css/bulma.css';
 
 html, body {
@@ -26,5 +36,12 @@ html, body {
   text-align: center;
   color: #FFF;
   height: 100%;
+}
+
+.is-success {
+  background: #333;
+  background: -webkit-linear-gradient(left top, #024, #402);
+  background: -moz-linear-gradient(bottom right, #024, #402);
+  background: linear-gradient(to bottom right, #024, #402);
 }
 </style>

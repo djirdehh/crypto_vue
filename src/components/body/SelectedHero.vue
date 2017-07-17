@@ -2,7 +2,7 @@
     <div class="columns selected-section">
       <router-link to="/" class="nav-item">
         <div class="return-action">
-          <icon name="arrow-left" class="arrow-left" height="27" width="27"></icon>
+          <icon name="chevron-left" class="arrow-left" height="27" width="27"></icon>
         </div>
       </router-link>
       <div class="column is-7 image-section">
@@ -116,21 +116,26 @@ $medium: 768px;
 $large: 1024px;
 
 .selected-section {
-  padding-top: 80px;
   position: relative;
   align-items: center;
   
+  @media screen and (max-width: $medium) {
+    padding-top: 30px;
+  }
+
   .return-action {
     position: absolute;
     left: 30px;
-    color: #FFF;
+    color: #fd6721;
     cursor: pointer;
     z-index: 1;
 
+    @media screen and (max-width: $medium) {
+      color: #FFF;
+    }
+
     .arrow-left {
-      border-radius: 60px;
-      padding: 7px;
-      background: #fd6721;
+
     }
   }
 
