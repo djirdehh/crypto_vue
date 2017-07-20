@@ -101,8 +101,7 @@ export default {
       this.$http.get(`https://api.coinmarketcap.com/v1/ticker/${this.selectedCryptoCurrency.id}/?convert=${this.selectedFiatCurrency}`)
         .then(cryptoCurrency => {
           this.toggleDropDown()
-          this.selectedCryptoCurrency.selectedPrice = Number(cryptoCurrency.body[0]['price_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString(
-            undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+          this.selectedCryptoCurrency.selectedPrice = Number(cryptoCurrency.body[0]['price_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
           this.selectedCryptoCurrency.selectedMarketCap = Number(cryptoCurrency.body[0]['market_cap_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString()
         })
     }
@@ -202,11 +201,16 @@ $large: 1024px;
       position: absolute;
       right: 50px;
 
+      @media screen and (max-width: $medium) {
+        right: 20px;
+      }
+
       .control {
+        text-align: center;
+
         .button {
           width: 81px;
-          background-color: transparent;
-          color: #FFF;
+          color: #1e1335;
           position: relative;
 
           &:focus {
@@ -241,7 +245,8 @@ $large: 1024px;
           z-index: 1000;
           height: 150px;
           overflow-y: scroll;
-          
+          background-color: #FFF;
+
           ul {
           }
 
@@ -250,7 +255,7 @@ $large: 1024px;
           }
 
           .nav-item {
-            color: #FFF;
+            color: #1e1335;
             -o-transition: .5s;
             -ms-transition: .5s;
             -moz-transition: .5s;

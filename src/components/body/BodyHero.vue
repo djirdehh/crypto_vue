@@ -61,6 +61,7 @@ export default {
   },
   methods: {
     addImageAndDescription (cryptoCurrency) {
+      cryptoCurrency.id = cryptoCurrency.id in cryptoCurrencyData ? cryptoCurrency.id : undefined
       cryptoCurrency.image = `${cryptoCurrency.id}_image`
       cryptoCurrency.description = cryptoCurrencyData[cryptoCurrency.id].description
       cryptoCurrency.website = cryptoCurrencyData[cryptoCurrency.id].website

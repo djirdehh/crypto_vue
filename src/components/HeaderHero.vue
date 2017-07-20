@@ -25,12 +25,12 @@
           <section class="modal-card-body">
             <div class="content">
               <h3> CryptoVue </h3>
-              <p>Cryptocurrencies emerged in 2009 with the first decentralized cryptocurrency - Bitcoin. As of today - more than 700 digital currencies exist with a total market capitalization greater than 100 billion USD. </p>
-              <p>CryptoVue is a real-time dashboard that displays the top 10 cryptocurrencies based on currency price, market captilization and overall circulating supply - obtained from the leading cryptocurrency resource <span>CoinMarketCap</span>.</p>
+              <p>Cryptocurrencies emerged in 2009 with the first decentralized cryptocurrency - <a href="https://bitcoin.org/en/" target="_blank">Bitcoin</a>. As of today - more than 700 digital currencies exist with a total market capitalization greater than 100 billion USD. </p>
+              <p><a target="_blank">CryptoVue</a> is a real-time dashboard that displays the top 10 cryptocurrencies based on currency price, market captilization and overall circulating supply - obtained from the leading cryptocurrency resource <a href="https://vuejs.org/" target="_blank">CoinMarketCap</a>.</p>
               <h3>Vue</h3>
               <img src="/static/vue_logo.png" class="modal-body-logo" id="vue-logo" />
-              <p>Built as a weekend project, this application was a great introduction in  understanding the common concepts of Vue (reusable single-file components, vue-router, templating, etc.). </p>
-              <p style="padding-bottom: 10px">Styling of the application was done with Bulma (a flexbox based CSS framework) and SASS. Head over to the my github page to see the entire scaffold and feel free to reach out with any comments/questions!</p>
+              <p>Built as a weekend project, this was a great introduction in  understanding the common concepts of <a href="https://vuejs.org/" target="_blank">Vue</a> (reusable single-file components, vue-router, templating, etc.). </p>
+              <p style="padding-bottom: 10px">Styling of the application was done with <a href="http://bulma.io/" target="_blank">Bulma</a> (Flexbox based CSS framework) and SASS. Head over to the my github page to see the entire scaffold and feel free to reach out with any comments/questions!</p>
             </div>
           </section>
           <footer class="modal-card-foot">
@@ -114,6 +114,10 @@ $large: 1024px;
         color: #FFF;
         letter-spacing: 5px;
         padding-top: 2px;
+
+        @media screen and (max-width: $small) {
+          display: none;
+        }
       }
     }
   }
@@ -139,6 +143,10 @@ $large: 1024px;
   .modal-card {
     border-radius: 10px;
     max-width: 500px;
+
+     @media screen and (max-width: $medium) {
+      margin: 0px;
+    }
 
     .modal-card-head {
       display: block;
@@ -174,6 +182,12 @@ $large: 1024px;
 
         @media screen and (max-width: $medium) {
           font-size: 12px;
+        }
+
+        a {
+          color: #fd6721;
+          font-weight: 700;
+          text-decoration: none;
         }
       }
 

@@ -118,5 +118,11 @@
       "website": "https://wavesplatform.com/",
       "paper": "https://blog.wavesplatform.com/waves-whitepaper-164dd6ca6a23",
       "github": "https://github.com/wavesplatform/"
+   },    
+   "undefined": {
+      "description": "Hmmm. Though the price, circulating supply and market cap values are accurate - there doesn't appear to be any detailed data captured on this cryptocurrency. Should be updated in due time!",
+      "website": "",
+      "paper": "",
+      "github": ""
    }
 }
