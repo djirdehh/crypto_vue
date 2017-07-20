@@ -30,12 +30,12 @@
               <h3>Vue</h3>
               <img src="/static/vue_logo.png" class="modal-body-logo" id="vue-logo" />
               <p>Built as a weekend project, this was a great introduction in  understanding the common concepts of <a href="https://vuejs.org/" target="_blank">Vue</a> (reusable single-file components, vue-router, templating, etc.). </p>
-              <p style="padding-bottom: 10px">Styling of the application was done with <a href="http://bulma.io/" target="_blank">Bulma</a> (Flexbox based CSS framework) and SASS. Head over to the my github page to see the entire scaffold and feel free to reach out with any comments/questions!</p>
+              <p style="padding-bottom: 10px">Styling of the application was done with <a href="http://bulma.io/" target="_blank">Bulma</a> (Flexbox based CSS framework) and SASS. Head over to the my <a href="https://github.com/djirdehh/crypto_vue" target="_blank">github page</a> to see the entire scaffold and feel free to reach out with any comments/questions!</p>
             </div>
           </section>
           <footer class="modal-card-foot">
             <div class="content has-text-centered">
-              <div class="footer-title">Hassan Djirdeh | © 2017</div>
+              <div class="footer-title">Hassan Djirdeh | <icon name="calendar" height="12"></icon> 2017</div>
               <div class="footer-social-media">
                 <a class="icon" href="http://hassandjirdeh.com" target="_blank">
                   <icon name="h-square" scale="2"></icon>
