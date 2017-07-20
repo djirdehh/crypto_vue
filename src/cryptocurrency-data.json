@@ -108,7 +108,7 @@
       "github": "https://github.com/veritaseum"
    },
    "steem": {
-      "description": "An incentivized, blockchain-based social media platform where users can earn the digital currency (STEEM) by upvoting, posting and sharing content",
+      "description": "An incentivized, blockchain-based social media platform where users can earn the digital currency (STEEM) by upvoting, posting and sharing content.",
       "website": "https://steem.io/",
       "paper": "https://steem.io/SteemWhitePaper.pdf",
       "github": "https://github.com/steemit"
@@ -118,6 +118,24 @@
       "website": "https://wavesplatform.com/",
       "paper": "https://blog.wavesplatform.com/waves-whitepaper-164dd6ca6a23",
       "github": "https://github.com/wavesplatform/"
+   },
+   "qtum": {
+      "description": "The first digital currency that aims to allow Decentralized Applications and Smart Contracts to execute as part of an Unspent Transaction Output (UTXO), using a Proof-of-Stake model.",
+      "website": "http://www.qtum.org/",
+      "paper": "https://qtum.org/en/white-papers",
+      "github": "https://github.com/qtumproject"
+   }, 
+   "iconomi": {
+      "description": "Using Ethereum smart contracts, ICONOMI is a digital assets management platform that aims to provide a simple way for beginners and blockchain experts, to invest and manage their digital assets.",
+      "website": "https://www.iconomi.net/",
+      "paper": "https://coss.io/documents/white-papers/iconomi.pdf",
+      "github": ""
+   },
+   "gnosis-gno": {
+      "description": "Based on Ethereum, Gnosis is a decentralized prediction market platform that aims to disrupt some of the largest existing industries (insurance, financial services) in the near future.",
+      "website": "https://gnosis.pm/",
+      "paper": "https://gnosis.pm/resources/default/pdf/gnosis_whitepaper.pdf",
+      "github": "https://github.com/gnosis"
    },    
    "undefined": {
       "description": "Hmmm. Though the price, circulating supply and market cap values are accurate - there doesn't appear to be any detailed data captured on this cryptocurrency. Should be updated in due time!",
