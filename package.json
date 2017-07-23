@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
-    "build": "node build/build.js",
+    "build": "node build/build.js && sw-precache --verbose --config=sw-precache-config.js",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
@@ -60,7 +60,8 @@
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "sw-precache": "^4.3.0"
   },
   "engines": {
     "node": ">= 4.0.0",
