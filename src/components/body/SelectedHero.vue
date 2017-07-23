@@ -43,8 +43,8 @@
         <div class="price-section">
           <p class="price-tag">Current Price</p>
           <p class="price-amount">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedPrice }} 
-            <span :class="{'positive-percent-change': positivePercentChange, 'negative-percent-change': negativePercentChange}">
-              ({{ selectedCryptoCurrency.percent_change_24h }}%)
+            <span :class="{'positive-percent-change': selectedCryptoCurrency.positivePercentChange, 'negative-percent-change': !selectedCryptoCurrency.positivePercentChange}">
+              ({{ selectedCryptoCurrency.percentChange24h }}%)
             </span>
           </p>
         </div>
@@ -78,11 +78,6 @@ export default {
   },
   created () {
     EventBus.$on('cryptoCurrencySelected', cryptoCurrency => {
-      if (cryptoCurrency.percent_change_24h.indexOf('-') > -1) {
-        this.positivePercentChange = false
-        this.negativePercentChange = true
-        cryptoCurrency.percent_change_24h = cryptoCurrency.percent_change_24h.replace(/^-/, '')
-      }
       cryptoCurrency.selectedPrice = Number(cryptoCurrency.price_usd).toFixed(2)
       cryptoCurrency.selectedSupply = Number(cryptoCurrency.available_supply).toLocaleString()
       cryptoCurrency.selectedMarketCap = Number(cryptoCurrency.market_cap_usd).toLocaleString()
@@ -285,11 +280,11 @@ $large: 1024px;
         font-size: 40px;
 
         .positive-percent-change {
-          color: #00d1b2
+          color: #00d1b2;
         }
 
         .negative-percent-change {
-          color: #ff3860
+          color: #ff3860;
         }
 
         @media screen and (max-width: $medium) {

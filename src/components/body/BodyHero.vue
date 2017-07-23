@@ -11,6 +11,12 @@
             </div>
             <div class="card-content">
               <p class="title is-5">{{ cryptoCurrency.name }}</p>
+              <p class="title price-title is-5">${{ getPriceUSD(cryptoCurrency) }} 
+                <span :class="{'positive-percent-change': cryptoCurrency.positivePercentChange, 'negative-percent-change': !cryptoCurrency.positivePercentChange}"> {{ getPercentChange(cryptoCurrency) }}% 
+                  <icon class="arrow-up" name="arrow-up" height="9" width="9"></icon>
+                  <icon class="arrow-down" name="arrow-down" height="9" width="9"></icon>
+                </span>
+              </p>
             </div>
           </div>
         </router-link>
@@ -27,6 +33,12 @@
             </div>
             <div class="card-content">
               <p class="title is-5">{{ cryptoCurrency.name }}</p>
+              <p class="title price-title is-5">${{ getPriceUSD(cryptoCurrency) }}  
+                <span :class="{'positive-percent-change': cryptoCurrency.positivePercentChange, 'negative-percent-change': !cryptoCurrency.positivePercentChange}"> {{ getPercentChange(cryptoCurrency) }}% 
+                  <icon class="arrow-up" name="arrow-up" height="9" width="9"></icon>
+                  <icon class="arrow-down" name="arrow-down" height="9" width="9"></icon>
+                </span>
+              </p>
             </div>
           </div>
         </router-link>
@@ -67,6 +79,16 @@ export default {
       cryptoCurrency.website = cryptoCurrencyData[cryptoCurrency.id].website
       cryptoCurrency.paper = cryptoCurrencyData[cryptoCurrency.id].paper
       cryptoCurrency.github = cryptoCurrencyData[cryptoCurrency.id].github
+
+      cryptoCurrency.positivePercentChange = !(cryptoCurrency.percent_change_24h.indexOf('-') > -1)
+      cryptoCurrency.percentChange24h = cryptoCurrency.percent_change_24h.replace(/^-/, '')
+    },
+    getPriceUSD (cryptoCurrency) {
+      const priceUsd = cryptoCurrency.price_usd
+      return Number(priceUsd).toFixed(2)
+    },
+    getPercentChange (cryptoCurrency) {
+      return cryptoCurrency.percentChange24h
     },
     selectCryptoCurrency (cryptoCurrency) {
       this.selectCryptoCurrency = cryptoCurrency
@@ -127,9 +149,32 @@ $large: 1024px;
 
     .title {
       position: absolute;
-      bottom: 20%;
+      bottom: 15%;
       left: 0;
       right: 0;
+    }
+
+    .price-title {
+      font-size: 1.0rem;
+      font-weight: 600;
+
+        .positive-percent-change {
+          font-size: 0.9em;
+          color: #00d1b2;
+
+          .arrow-down {
+            display: none;
+          }
+        }
+
+        .negative-percent-change {
+          font-size: 0.9em;
+          color: #ff3860;
+
+          .arrow-up {
+            display: none;
+          }
+        }
     }
   }
 }
