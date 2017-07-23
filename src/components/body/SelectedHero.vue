@@ -120,17 +120,9 @@ $large: 1024px;
   .return-action {
     position: absolute;
     left: 30px;
-    color: #fd6721;
+    color: #FFF;
     cursor: pointer;
     z-index: 1;
-
-    @media screen and (max-width: $medium) {
-      color: #FFF;
-    }
-
-    .arrow-left {
-
-    }
   }
 
   .image-section {

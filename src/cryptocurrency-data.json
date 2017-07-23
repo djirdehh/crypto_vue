@@ -136,7 +136,31 @@
       "website": "https://gnosis.pm/",
       "paper": "https://gnosis.pm/resources/default/pdf/gnosis_whitepaper.pdf",
       "github": "https://github.com/gnosis"
-   },    
+   }, 
+   "status": {
+      "description": "A modular utility token that fuels the Status network - an open source messaging platform and mobile interface to interact with decentralized applications that run on the Ethereum Network.",
+      "website": "https://status.im/",
+      "paper": "https://status.im/whitepaper.pdf",
+      "github": "https://github.com/status-im"
+   },
+   "siacoin": {
+      "description": "Sia is a decentralized cloud storage platform that intends to compete with existing storage solutions, at both the P2P and enterprise level. Peers on Sia rent storage from each other while Sia itself stores only the storage contracts formed between parties.",
+      "website": "http://sia.tech/",
+      "paper": "https://www.sia.tech/whitepaper.pdf",
+      "github": "https://github.com/NebulousLabs/Sia"
+   },  
+   "golem-network-tokens": {
+      "description": "Golem project aims to create a global, open sourced, decentralized supercomputer in which producers may sell spare CPU time of their personal computers and consumers may acquire resources for computation-intensive tasks.",
+      "website": "https://golem.network/",
+      "paper": "http://golemproject.net/doc/DraftGolemProjectWhitepaper.pdf",
+      "github": "https://github.com/golemfactory"
+   }, 
+   "stellar": {
+      "description": "A platform that aims to facilitate moving currency quickly, reliably and almost no cost by connecting banks, payments systems and people through the Stellar network.",
+      "website": "https://www.stellar.org/",
+      "paper": "https://www.stellar.org/papers/stellar-consensus-protocol.pdf",
+      "github": "https://github.com/stellar"
+   },   
    "undefined": {
       "description": "Hmmm. Though the price, circulating supply and market cap values are accurate - there doesn't appear to be any detailed data captured on this cryptocurrency. Should be updated in due time!",
       "website": "",
