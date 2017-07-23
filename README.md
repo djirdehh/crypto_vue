@@ -33,7 +33,7 @@
 </div>
 
 <div align="center">
-  <img src="http://i.imgur.com/aA8qNya.png" width="250"/>
+  <img src="http://i.imgur.com/whG5KNE.png"/>
 </div>
 
 ### Locally using npm
