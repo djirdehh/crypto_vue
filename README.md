@@ -1,21 +1,19 @@
-# crypto_vue
+<div align="center">
+<p>
+<img src="http://imgur.com/a/gVWMm" width="250"/>
+</p>
 
-> A Vue.js project on cryptocurrency
+<p>
+<a href="">
+  <img alt="first release" src="https://img.shields.io/badge/release-v1.0-brightgreen.svg" />
+</a>
 
-## Build Setup
+<a href="https://www.npmjs.com/package/npm">
+  <img alt="npm version" src="https://img.shields.io/badge/npm-v4.1.1-blue.svg" />
+</a>
+</p>
 
-``` bash
-# install dependencies
-npm install
+<p>✨ <strong>CryptoVue</strong> is a Vue.js built real-time dashboard that displays the top 10 cryptocurrencies in the market based on currency price, market captilization and overall circulating supply. ✨</p>
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+<p><a href="https://www.cryptovue.com/" class="btn btn-primary btn-md">Launch App</a></p>
+</div>
