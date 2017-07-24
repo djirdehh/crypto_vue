@@ -19,12 +19,11 @@
     <div class="modal" :class="{'is-active': modalActive}">
       <div class="modal-background" @click="toggleModal"></div>
         <div class="modal-card">
-          <header class="modal-card-head">
-            <img src="/static/app-logo.png" class="modal-logo" />
-          </header>
+          <header class="modal-card-head"></header>
           <section class="modal-card-body">
             <div class="content">
               <h3> CryptoVue </h3>
+              <img src="/static/app-logo.png" class="modal-body-logo" id="app-logo"/>
               <p>Cryptocurrencies emerged in 2009 with the first decentralized cryptocurrency - <a href="https://bitcoin.org/en/" target="_blank">Bitcoin</a>. As of today - more than 700 digital currencies exist with a total market capitalization greater than 100 billion USD. </p>
               <p><a target="_blank">CryptoVue</a> is a real-time dashboard that displays the top 10 cryptocurrencies based on currency price, market captilization and overall circulating supply - obtained from the leading cryptocurrency resource <a href="https://vuejs.org/" target="_blank">CoinMarketCap</a>.</p>
               <h3>Vue</h3>
@@ -93,6 +92,7 @@ $medium: 768px;
 $large: 1024px;
 
 .nav {
+  font-family: Nunito, sans-serif;
   -webkit-box-shadow: 0px 0px 0px 0px !important;
   box-shadow: 0px 0px 0px 0px !important;
   
@@ -196,6 +196,10 @@ $large: 1024px;
         font-size: 20px;
         font-weight: 600;
         margin-bottom: 10px;
+      }
+
+      #app-logo {
+        height: 60px;
       }
 
       #vue-logo {
