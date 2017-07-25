@@ -13,7 +13,7 @@
 </a>
 </p>
 
-<p>✨ <strong>CryptoVue</strong> is a real-time cryptocurrency dashboard that displays the top 10 cryptocurrencies based on currency price, market captilization and overall circulating supply. ✨</p>
+<p>✨ <strong>CryptoVue</strong> is a real-time dashboard that displays the top 10 cryptocurrencies based on currency price, market captilization and overall circulating supply. ✨</p>
 
 <p><a href="https://www.cryptovue.com/" class="btn btn-primary btn-md">Launch App</a></p>
 </div>
