@@ -1,7 +1,7 @@
 <template>
   <div class="hero-head">
-    <header class="nav">
-      <div class="container">
+    <header class="nav" :class="{'nav-iframe': isOpenedInIFrame}">
+      <div class="container" :class="{'hide': isOpenedInIFrame}">
         <div class="nav-left">
           <router-link to="/" class="nav-item">
             <img src="/static/app-logo.png" class="app-logo" /> <p class="app-logo-name">Crypto<span>Vue</span></p>
@@ -69,7 +69,13 @@ export default {
     return {
       modalActive: false,
       showBTCWallet: false,
-      showETHWallet: false
+      showETHWallet: false,
+      isOpenedInIFrame: false
+    }
+  },
+  created () {
+    if (window.self !== window.top) {
+      this.isOpenedInIFrame = true
     }
   },
   methods: {
@@ -303,9 +309,6 @@ $large: 1024px;
     }
   }
 
-  .is-medium {
-
-  }
   .modal-close {
     background-color: #fd6721;
 
@@ -315,6 +318,14 @@ $large: 1024px;
       right: 5px;
     }
   }
+}
+
+.hide {
+  display: none;
+}
+
+.nav-iframe {
+  height: 1.0rem;
 }
 
 @-webkit-keyframes spinner { 
