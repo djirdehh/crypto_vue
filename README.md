@@ -23,6 +23,8 @@
 
 * 📊 <strong>Real-time: </strong> Real time data obtained from the leading cryptocurrency resource [CoinMarketCap](https://coinmarketcap.com/)
 
+* 💪 <strong>Powerful: </strong> Runs a [Service Worker](https://github.com/w3c/ServiceWorker) script to increase online performance and function without a network connection
+
 * 📱 <strong>Responsive: </strong> Made mobile responsive with [Bulma](http://bulma.io/) and [SASS](http://sass-lang.com/)
 
 * 🎉 <strong>Live: </strong> Deployed with [Heroku](https://www.heroku.com/) and secured with [Cloudflare](https://www.cloudflare.com/)
@@ -49,5 +51,5 @@
 Head over to <a href="https://github.com/vuejs/vue-cli">vue-cli</a> to see a list of things you can do.
 </p>
 
-## Improvements
-- [ ] Fix Service Worker to cache assets
+## Appreciation :)
+* [housseindjirdeh](https://github.com/housseindjirdeh)
