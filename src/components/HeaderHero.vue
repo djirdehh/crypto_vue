@@ -50,8 +50,8 @@
                 </a>
               </div>
               <div class="wallet-content">
-                <p class="wallet-tag" @click="displayBTC">BTC? <span v-if="showBTCWallet" class="wallet-id">12M1xfsLLg3oaPmaa8Np2THVmgKjG7uGDb</span></p>
-                <p class="wallet-tag" @click="displayETH">ETH? <span v-if="showETHWallet" class="wallet-id">0xc8D204007B241EA59e9Eac263e983CBDfb9367B4</span></p>
+                <p class="wallet-tag" @click="displayBTC">BTC? <span v-if="showBTCWallet" class="wallet-id">1cV9YMjpweZyJ17DJbTa1WELs4BjdmUMp</span></p>
+                <p class="wallet-tag" @click="displayETH">ETH? <span v-if="showETHWallet" class="wallet-id">0x5af8dfc441d4068f705372f461a85aba49aa5f46</span></p>
               </div>
             </div>
           </footer>
