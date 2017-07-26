@@ -1,15 +1,16 @@
 <template>
   <div class="hero-head">
     <header class="nav" :class="{'nav-iframe': isOpenedInIFrame}">
-      <div class="container" :class="{'hide': isOpenedInIFrame}">
+      <div class="container">
         <div class="nav-left">
-          <router-link to="/" class="nav-item">
+          <router-link to="/" class="nav-item" :class="{'hide': isOpenedInIFrame}">
             <img src="/static/app-logo.png" class="app-logo" /> <p class="app-logo-name">Crypto<span>Vue</span></p>
           </router-link>
         </div>
         <div class="nav-right nav-menu">
           <span class="nav-item">
-            <a class="button is-success is-inverted is-outlined" @click="toggleModal">
+            <img src="/static/app-logo.png" class="iframe-app-logo" :class="{'show': isOpenedInIFrame}"/>
+            <a class="button is-success is-inverted is-outlined" :class="{'hide': isOpenedInIFrame}" @click="toggleModal">
               <span>What's this?</span>
             </a>
           </span>
@@ -137,6 +138,12 @@ $large: 1024px;
     }
 
     .nav-item {
+      .iframe-app-logo {
+        max-height: 25px;
+        padding-right: 5px;
+        display: none;
+      }
+
       .button {
         &:hover {
           color: #fd6721;
@@ -321,11 +328,15 @@ $large: 1024px;
 }
 
 .hide {
-  display: none;
+  display: none !important;
+}
+
+.show {
+  display: block !important;
 }
 
 .nav-iframe {
-  height: 1.0rem;
+  height: 2.5rem;
 }
 
 @-webkit-keyframes spinner { 

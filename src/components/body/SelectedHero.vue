@@ -1,7 +1,7 @@
 <template>
-    <div class="columns selected-section">
+    <div class="columns selected-section" :class="{'no-padding': isOpenedInIFrame}">
       <router-link to="/" class="nav-item">
-        <div class="return-action">
+        <div class="return-action" :class="{'positive-zindex': isOpenedInIFrame}">
           <icon name="chevron-left" class="arrow-left" height="27" width="27"></icon>
         </div>
       </router-link>
@@ -73,7 +73,8 @@ export default {
       selectedFiatCurrency: fiatCurrencies[11],
       positivePercentChange: true,
       negativePercentChange: false,
-      dropDownOpen: false
+      dropDownOpen: false,
+      isOpenedInIFrame: false
     }
   },
   created () {
@@ -83,6 +84,9 @@ export default {
       cryptoCurrency.selectedMarketCap = Number(cryptoCurrency.market_cap_usd).toLocaleString()
       this.selectedCryptoCurrency = cryptoCurrency
     })
+    if (window.self !== window.top) {
+      this.isOpenedInIFrame = true
+    }
   },
   beforeDestroy () {
     EventBus.$off('cryptoCurrencySelected')
@@ -122,7 +126,6 @@ $large: 1024px;
     left: 30px;
     color: #FFF;
     cursor: pointer;
-    z-index: 1;
   }
 
   .image-section {
@@ -285,6 +288,14 @@ $large: 1024px;
       }
     }
   }
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+.positive-zindex {
+  z-index: 99;
 }
 
 @-webkit-keyframes spinner {
