@@ -1,7 +1,7 @@
 <template>
     <div class="columns selected-section" :class="{'no-padding': isOpenedInIFrame}">
       <router-link to="/" class="nav-item">
-        <div class="return-action" :class="{'positive-zindex': isOpenedInIFrame}">
+        <div class="return-action">
           <icon name="chevron-left" class="arrow-left" height="27" width="27"></icon>
         </div>
       </router-link>
@@ -33,9 +33,9 @@
               </span>
             </button>
 
-            <div class="box dropdown" :class="{'is-open': dropDownOpen}">
+            <div class="box dropdown" :class="{'is-open': dropDownOpen, 'transparent': isOpenedInIFrame}">
               <ul>
-                <li v-for="fiatCurrency in fiatCurrencies"><a class="nav-item" @click="selectFiatCurrency(fiatCurrency)">{{ fiatCurrency }}</a></li>
+                <li v-for="fiatCurrency in fiatCurrencies"><a class="nav-item" :class="{'font-white': isOpenedInIFrame}"@click="selectFiatCurrency(fiatCurrency)">{{ fiatCurrency }}</a></li>
               </ul>
             </div>
           </div>
@@ -126,6 +126,7 @@ $large: 1024px;
     left: 30px;
     color: #FFF;
     cursor: pointer;
+    z-index: 10;
   }
 
   .image-section {
@@ -294,8 +295,12 @@ $large: 1024px;
   padding: 0px;
 }
 
-.positive-zindex {
-  z-index: 99;
+.transparent {
+  background-color: transparent !important;
+}
+
+.font-white {
+  color: #FFF !important;
 }
 
 @-webkit-keyframes spinner {
