@@ -6,6 +6,9 @@
         <p class="wallet-tag">BTC <span>1cV9YMjpweZyJ17DJbTa1WELs4BjdmUMp</span></p>
         <p class="wallet-tag">ETH <span >0x5af8dfc441d4068f705372f461a85aba49aa5f46</span></p>
       </div>
+      <div class="desktop-footer" :class="{'hide': isOpenedInIFrame}">
+        <a href="https://chrome.google.com/webstore/search/cryptovue" target="_blank" class="button is-medium"><img :src="`/static/chrome-webstore.png`" style="height: 50px"/></a>
+      </div>
     </footer>
   </div>
 </template>
@@ -66,6 +69,20 @@ $large: 1024px;
       span {
         color: #00d1b2;
       }
+    }
+  }
+
+  .desktop-footer {
+    display: block;
+
+    .button {
+      float: right;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    @media screen and (max-width: $medium) {
+      display: none;
     }
   }
 }
