@@ -102,7 +102,7 @@ $large: 1024px;
   font-family: Nunito, sans-serif;
   -webkit-box-shadow: 0px 0px 0px 0px !important;
   box-shadow: 0px 0px 0px 0px !important;
-  
+
   .nav-left {
     overflow-y: hidden;
 
@@ -218,17 +218,17 @@ $large: 1024px;
       #vue-logo {
         height: 60px;
 
-        -webkit-animation-name: spinner; 
-        -webkit-animation-timing-function: linear; 
-        -webkit-animation-iteration-count: infinite; 
-        -webkit-animation-duration: 30s; 
-        animation-name: spinner; 
-        animation-timing-function: linear; 
-        animation-iteration-count: infinite; 
-        animation-duration: 30s; 
-        -webkit-transform-style: preserve-3d; 
-        -moz-transform-style: preserve-3d; 
-        -ms-transform-style: preserve-3d; 
+        -webkit-animation-name: spinner;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-duration: 30s;
+        animation-name: spinner;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 30s;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
         transform-style: preserve-3d;
 
         @media screen and (max-width: $medium) {
@@ -271,7 +271,7 @@ $large: 1024px;
         .footer-social-media {
           height: 30px;
           color: #fd6721;
-          
+
           .icon {
             text-decoration: none;
             -webkit-transform: scale(0.8);
@@ -339,27 +339,27 @@ $large: 1024px;
   height: 2.5rem;
 }
 
-@-webkit-keyframes spinner { 
-    from 
-    { 
-        -webkit-transform: rotateY(0deg); 
-    } 
-    to { 
-        -webkit-transform: rotateY(-360deg); 
-    } 
+@-webkit-keyframes spinner {
+    from
+    {
+        -webkit-transform: rotateY(0deg);
+    }
+    to {
+        -webkit-transform: rotateY(-360deg);
+    }
 }
-@keyframes spinner { 
-    from { 
-        -moz-transform: rotateY(0deg); 
-        -ms-transform: rotateY(0deg); 
-        transform: rotateY(0deg); 
-    } 
-    to 
-    { 
-        -moz-transform: rotateY(-360deg); 
-        -ms-transform: rotateY(-360deg); 
-        transform: rotateY(-360deg); 
-    
-    } 
+@keyframes spinner {
+    from {
+        -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+    to
+    {
+        -moz-transform: rotateY(-360deg);
+        -ms-transform: rotateY(-360deg);
+        transform: rotateY(-360deg);
+
+    }
 }
 </style>
