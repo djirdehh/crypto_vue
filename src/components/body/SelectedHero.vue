@@ -97,11 +97,11 @@ export default {
     },
     selectFiatCurrency (fiatCurrency) {
       this.selectedFiatCurrency = fiatCurrency
-      this.$http.get(`https://api.coinmarketcap.com/v1/ticker/${this.selectedCryptoCurrency.id}/?convert=${this.selectedFiatCurrency}`)
+      this.axios.get(`https://api.coinmarketcap.com/v1/ticker/${this.selectedCryptoCurrency.id}/?convert=${this.selectedFiatCurrency}`)
         .then(cryptoCurrency => {
           this.toggleDropDown()
-          this.selectedCryptoCurrency.selectedPrice = Number(cryptoCurrency.body[0]['price_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-          this.selectedCryptoCurrency.selectedMarketCap = Number(cryptoCurrency.body[0]['market_cap_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString()
+          this.selectedCryptoCurrency.selectedPrice = Number(cryptoCurrency.data[0]['price_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+          this.selectedCryptoCurrency.selectedMarketCap = Number(cryptoCurrency.data[0]['market_cap_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString()
         })
     }
   }
