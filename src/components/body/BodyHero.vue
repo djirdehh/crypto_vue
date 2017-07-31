@@ -63,9 +63,9 @@ export default {
     }
   },
   created () {
-    this.$http.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
+    this.axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
       .then(response => {
-        this.cryptoCurrencies = response.body
+        this.cryptoCurrencies = response.data
         this.cryptoCurrencies.forEach(cryptoCurrency => this.addImageAndDescription(cryptoCurrency))
         this.firstFiveCryptoCurrencies = this.cryptoCurrencies.slice(0, 5)
         this.secondFiveCryptoCurrencies = this.cryptoCurrencies.slice(5)
