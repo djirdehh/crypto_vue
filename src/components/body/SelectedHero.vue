@@ -2,7 +2,8 @@
     <div class="columns selected-section" :class="{'no-padding': isOpenedInIFrame}">
       <router-link to="/" class="nav-item">
         <div class="return-action">
-          <icon name="chevron-left" class="arrow-left" height="27" width="27"></icon>
+          <icon name="chevron-left" class="arrow-left" height="22" width="22"></icon>
+          <p class="return-text">Return</p>
         </div>
       </router-link>
       <div class="column is-7 image-section">
@@ -161,6 +162,18 @@ $large: 1024px;
     color: #FFF;
     cursor: pointer;
     z-index: 10;
+
+    .arrow-left {
+      padding-right: 5px;
+    }
+
+    .return-text {
+      font-size: 11px;
+
+      @media screen and (max-width: $medium) {
+        display: none;
+      }
+    }
   }
 
   .image-section {
