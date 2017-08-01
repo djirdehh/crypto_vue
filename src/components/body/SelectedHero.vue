@@ -61,13 +61,16 @@
 </template>
 
 <script>
-import { EventBus } from '../../event-bus.js'
+import { store } from '../../store.js'
+
 const fiatCurrencies = [ 'AUD', 'BRL', 'CAD', 'CHF', 'CNY', 'EUR', 'GBP', 'HKD', 'IDR', 'INR', 'JPY', 'USD', 'KRW', 'MXN', 'RUB' ]
+const cryptoCurrencyData = require('../../cryptocurrency-data.json')
 
 export default {
   name: 'selectedHero',
   data () {
     return {
+      sharedState: store.state,
       selectedCryptoCurrency: {},
       fiatCurrencies: fiatCurrencies,
       selectedFiatCurrency: fiatCurrencies[11],
@@ -78,20 +81,39 @@ export default {
     }
   },
   created () {
-    EventBus.$on('cryptoCurrencySelected', cryptoCurrency => {
-      cryptoCurrency.selectedPrice = Number(cryptoCurrency.price_usd).toFixed(2)
-      cryptoCurrency.selectedSupply = Number(cryptoCurrency.available_supply).toLocaleString()
-      cryptoCurrency.selectedMarketCap = Number(cryptoCurrency.market_cap_usd).toLocaleString()
-      this.selectedCryptoCurrency = cryptoCurrency
-    })
+    this.selectCryptoCurrency()
+
     if (window.self !== window.top) {
       this.isOpenedInIFrame = true
     }
   },
-  beforeDestroy () {
-    EventBus.$off('cryptoCurrencySelected')
+  watch: {
+    $route () {
+      this.selectCryptoCurrency()
+    }
   },
   methods: {
+    selectCryptoCurrency () {
+      let cryptoCurrency
+      if (this.sharedState.cryptoCurrencies.length === 0 || !this.sharedState.cryptoCurrencies) {
+        this.axios.get(`https://api.coinmarketcap.com/v1/ticker/${this.$route.params.id}/`)
+          .then(response => {
+            cryptoCurrency = response.data[0]
+            cryptoCurrency.selectedPrice = Number(cryptoCurrency.price_usd).toFixed(2)
+            cryptoCurrency.selectedSupply = Number(cryptoCurrency.available_supply).toLocaleString()
+            cryptoCurrency.selectedMarketCap = Number(cryptoCurrency.market_cap_usd).toLocaleString()
+            this.selectedCryptoCurrency = this.addImageAndDescription(cryptoCurrency)
+          })
+      } else {
+        cryptoCurrency = this.sharedState.cryptoCurrencies.filter((obj) => {
+          return obj.id === this.$route.params.id
+        })[0]
+        cryptoCurrency.selectedPrice = Number(cryptoCurrency.price_usd).toFixed(2)
+        cryptoCurrency.selectedSupply = Number(cryptoCurrency.available_supply).toLocaleString()
+        cryptoCurrency.selectedMarketCap = Number(cryptoCurrency.market_cap_usd).toLocaleString()
+        this.selectedCryptoCurrency = cryptoCurrency
+      }
+    },
     toggleDropDown () {
       this.dropDownOpen = !this.dropDownOpen
     },
@@ -103,6 +125,18 @@ export default {
           this.selectedCryptoCurrency.selectedPrice = Number(cryptoCurrency.data[0]['price_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
           this.selectedCryptoCurrency.selectedMarketCap = Number(cryptoCurrency.data[0]['market_cap_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString()
         })
+    },
+    addImageAndDescription (cryptoCurrency) {
+      cryptoCurrency.id = cryptoCurrency.id in cryptoCurrencyData ? cryptoCurrency.id : undefined
+      cryptoCurrency.image = `${cryptoCurrency.id}_image`
+      cryptoCurrency.description = cryptoCurrencyData[cryptoCurrency.id].description
+      cryptoCurrency.website = cryptoCurrencyData[cryptoCurrency.id].website
+      cryptoCurrency.paper = cryptoCurrencyData[cryptoCurrency.id].paper
+      cryptoCurrency.github = cryptoCurrencyData[cryptoCurrency.id].github
+
+      cryptoCurrency.positivePercentChange = !(cryptoCurrency.percent_change_24h.indexOf('-') > -1)
+      cryptoCurrency.percentChange24h = cryptoCurrency.percent_change_24h.replace(/^-/, '')
+      return cryptoCurrency
     }
   }
 }

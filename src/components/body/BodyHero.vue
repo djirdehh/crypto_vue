@@ -2,7 +2,7 @@
   <div>
     <div class="columns" style="margin: 0px 10px">
       <div v-for="cryptoCurrency in firstFiveCryptoCurrencies" class="column">
-        <router-link to="/selected" @click.native="selectCryptoCurrency(cryptoCurrency)">
+        <router-link :to="`/${cryptoCurrency.id}`">
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
@@ -24,7 +24,7 @@
     </div>
     <div class="columns" style="margin: 0px 10px">
       <div v-for="cryptoCurrency in secondFiveCryptoCurrencies" class="column">
-        <router-link to="/selected" @click.native="selectCryptoCurrency(cryptoCurrency)">
+        <router-link :to="`/${cryptoCurrency.id}`">
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
@@ -48,14 +48,14 @@
 </template>
 
 <script>
-import { EventBus } from '../../event-bus.js'
-const cryptoCurrencyData = require('../../cryptocurrency-data.json')
+import { store } from '../../store.js'
 
 export default {
   props: {},
   name: 'bodyHero',
   data () {
     return {
+      sharedState: store.state,
       cryptoCurrencies: [],
       firstFiveCryptoCurrencies: [],
       secondFiveCryptoCurrencies: [],
@@ -66,20 +66,13 @@ export default {
     this.axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
       .then(response => {
         this.cryptoCurrencies = response.data
-        this.cryptoCurrencies.forEach(cryptoCurrency => this.addImageAndDescription(cryptoCurrency))
+        this.cryptoCurrencies.forEach(cryptoCurrency => this.getDifferenceInChange(cryptoCurrency))
         this.firstFiveCryptoCurrencies = this.cryptoCurrencies.slice(0, 5)
         this.secondFiveCryptoCurrencies = this.cryptoCurrencies.slice(5)
       })
   },
   methods: {
-    addImageAndDescription (cryptoCurrency) {
-      cryptoCurrency.id = cryptoCurrency.id in cryptoCurrencyData ? cryptoCurrency.id : undefined
-      cryptoCurrency.image = `${cryptoCurrency.id}_image`
-      cryptoCurrency.description = cryptoCurrencyData[cryptoCurrency.id].description
-      cryptoCurrency.website = cryptoCurrencyData[cryptoCurrency.id].website
-      cryptoCurrency.paper = cryptoCurrencyData[cryptoCurrency.id].paper
-      cryptoCurrency.github = cryptoCurrencyData[cryptoCurrency.id].github
-
+    getDifferenceInChange (cryptoCurrency) {
       cryptoCurrency.positivePercentChange = !(cryptoCurrency.percent_change_24h.indexOf('-') > -1)
       cryptoCurrency.percentChange24h = cryptoCurrency.percent_change_24h.replace(/^-/, '')
     },
@@ -89,12 +82,6 @@ export default {
     },
     getPercentChange (cryptoCurrency) {
       return cryptoCurrency.percentChange24h
-    },
-    selectCryptoCurrency (cryptoCurrency) {
-      this.selectCryptoCurrency = cryptoCurrency
-      this.$nextTick(() => {
-        EventBus.$emit('cryptoCurrencySelected', cryptoCurrency)
-      })
     }
   }
 }

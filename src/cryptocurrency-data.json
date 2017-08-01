@@ -1,12 +1,12 @@
 {
    "bitcoin": {
-      "description": "The first decentraziled peer-to-peer payment network in which encryption techniques are used to regulate the generation of units of currency and verify the transfer of funds, all operating independently of a central bank.",
+      "description": "The first decentralized peer-to-peer payment network in which encryption techniques are used to regulate the generation of units of currency and verify the transfer of funds, all operating independently of a central bank.",
       "website": "https://bitcoin.org/en/",
       "paper": "https://bitcoin.org/bitcoin.pdf",
       "github": "https://github.com/bitcoin"
    },
    "ethereum": {
-      "description": "An open-source, public, blockchain-based computing platform that enables developers to build and deploy decentraziled applications. Ether (ETH), the crypto token that fuels the Ethereum network acts as a tradeable cryptocurrency and is used to pay for transaction fees and services on the network.",
+      "description": "An open-source, public, blockchain-based computing platform that enables developers to build and deploy decentralized applications. Ether (ETH), the crypto token that fuels the Ethereum network acts as a tradeable cryptocurrency and is used to pay for transaction fees and services on the network.",
       "website": "https://www.ethereum.org/",
       "paper": "https://github.com/ethereum/wiki/wiki/White-Paper",
       "github": "https://github.com/ethereum"
@@ -51,7 +51,7 @@
       "description": "An open-source cryptocurrency that is heavily focused on privacy, decentralisation and scalability. Monero is based on the CryptoNote protocol and has significant algorithmic differences to Bitcoin.",
       "website": "https://getmonero.org/",
       "paper": "",
-      "github": "https://github.com/iotaledger"
+      "github": "https://github.com/monero-project"
    },
    "eos": {
       "description": "Software that introduces a new blockhain architecture designed to enable vertical and horizontal scaling of decentralized applications with the aim of quick and easy deployment, scalability to millions of transactions per second and elimination of user fees.",

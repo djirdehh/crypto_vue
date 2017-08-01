@@ -14,7 +14,7 @@ export default new VueRouter({
       component: BodyHero
     },
     {
-      path: '/selected',
+      path: '/:id',
       component: SelectedHero
     }
   ],
