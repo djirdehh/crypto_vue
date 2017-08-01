@@ -99,6 +99,10 @@ $large: 1024px;
     margin: 0 auto;
   }
 
+  @media screen and (max-width: $small) {
+    max-width: 200px;
+  }
+
   &:hover {
     border-radius: 4px;
     box-shadow: 0 0 5px 0 #fd6721;
@@ -108,6 +112,14 @@ $large: 1024px;
   .card-image {
     .image {
       top: -15px;
+
+      img {
+        @media screen and (max-width: $small) {
+          height: 90%;
+          width: 90%;
+          margin: 0 auto;
+        }
+      }
     }
 
     .cryptoCurrency-image {

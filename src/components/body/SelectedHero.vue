@@ -188,7 +188,7 @@ $large: 1024px;
       -webkit-animation-duration: 60s; 
       animation-name: spinner; 
       animation-timing-function: linear; 
-      animation-iteration-count: infinite; 
+      animation-iteration-count: 1; 
       animation-duration: 60s; 
       -webkit-transform-style: preserve-3d; 
       -moz-transform-style: preserve-3d; 
