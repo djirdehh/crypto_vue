@@ -82,7 +82,6 @@ export default {
   },
   created () {
     this.selectCryptoCurrency()
-
     if (window.self !== window.top) {
       this.isOpenedInIFrame = true
     }
@@ -93,29 +92,24 @@ export default {
     }
   },
   methods: {
+    toggleDropDown () {
+      this.dropDownOpen = !this.dropDownOpen
+    },
     selectCryptoCurrency () {
       let cryptoCurrency
       if (this.sharedState.cryptoCurrencies.length === 0 || !this.sharedState.cryptoCurrencies) {
         this.axios.get(`https://api.coinmarketcap.com/v1/ticker/${this.$route.params.id}/`)
           .then(response => {
             cryptoCurrency = response.data[0]
-            cryptoCurrency.selectedPrice = Number(cryptoCurrency.price_usd).toFixed(2)
-            cryptoCurrency.selectedSupply = Number(cryptoCurrency.available_supply).toLocaleString()
-            cryptoCurrency.selectedMarketCap = Number(cryptoCurrency.market_cap_usd).toLocaleString()
+            cryptoCurrency = this.manipulateCryptoCurrency(cryptoCurrency)
             this.selectedCryptoCurrency = this.addImageAndDescription(cryptoCurrency)
           })
       } else {
         cryptoCurrency = this.sharedState.cryptoCurrencies.filter((obj) => {
           return obj.id === this.$route.params.id
         })[0]
-        cryptoCurrency.selectedPrice = Number(cryptoCurrency.price_usd).toFixed(2)
-        cryptoCurrency.selectedSupply = Number(cryptoCurrency.available_supply).toLocaleString()
-        cryptoCurrency.selectedMarketCap = Number(cryptoCurrency.market_cap_usd).toLocaleString()
-        this.selectedCryptoCurrency = cryptoCurrency
+        this.selectedCryptoCurrency = this.manipulateCryptoCurrency(cryptoCurrency)
       }
-    },
-    toggleDropDown () {
-      this.dropDownOpen = !this.dropDownOpen
     },
     selectFiatCurrency (fiatCurrency) {
       this.selectedFiatCurrency = fiatCurrency
@@ -125,6 +119,12 @@ export default {
           this.selectedCryptoCurrency.selectedPrice = Number(cryptoCurrency.data[0]['price_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
           this.selectedCryptoCurrency.selectedMarketCap = Number(cryptoCurrency.data[0]['market_cap_' + this.selectedFiatCurrency.toLowerCase()]).toLocaleString()
         })
+    },
+    manipulateCryptoCurrency (cryptoCurrency) {
+      cryptoCurrency.selectedPrice = Number(cryptoCurrency.price_usd).toFixed(2)
+      cryptoCurrency.selectedSupply = Number(cryptoCurrency.available_supply).toLocaleString()
+      cryptoCurrency.selectedMarketCap = Number(cryptoCurrency.market_cap_usd).toLocaleString()
+      return cryptoCurrency
     },
     addImageAndDescription (cryptoCurrency) {
       cryptoCurrency.id = cryptoCurrency.id in cryptoCurrencyData ? cryptoCurrency.id : undefined

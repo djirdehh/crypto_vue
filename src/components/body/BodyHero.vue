@@ -55,21 +55,16 @@ export default {
   name: 'bodyHero',
   data () {
     return {
-      sharedState: store.state,
-      cryptoCurrencies: [],
-      firstFiveCryptoCurrencies: [],
-      secondFiveCryptoCurrencies: [],
-      selectedCryptoCurrency: {}
+      sharedState: store.state
     }
   },
-  created () {
-    this.axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
-      .then(response => {
-        this.cryptoCurrencies = response.data
-        this.cryptoCurrencies.forEach(cryptoCurrency => this.getDifferenceInChange(cryptoCurrency))
-        this.firstFiveCryptoCurrencies = this.cryptoCurrencies.slice(0, 5)
-        this.secondFiveCryptoCurrencies = this.cryptoCurrencies.slice(5)
-      })
+  computed: {
+    firstFiveCryptoCurrencies () {
+      return this.sharedState.cryptoCurrencies.slice(0, 5)
+    },
+    secondFiveCryptoCurrencies () {
+      return this.sharedState.cryptoCurrencies.slice(5)
+    }
   },
   methods: {
     getDifferenceInChange (cryptoCurrency) {
