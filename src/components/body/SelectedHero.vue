@@ -24,9 +24,26 @@
         </div>
       </div>
       <div class="column information-section" :class="{'information-section-iframe': isOpenedInIFrame}">
+        <div class="dropdown-section hide" :class="{'show': isOpenedInIFrame}">
+          <div class="control">
+            <button class="button" type="button" @click="toggleDropDown">
+              {{ selectedFiatCurrency }}
+              <span class="arrow-icon">
+                <icon v-if="!dropDownOpen" name="caret-down"></icon>
+                <icon v-if="dropDownOpen" name="caret-up"></icon>
+              </span>
+            </button>
+
+            <div class="box dropdown" :class="{'is-open': dropDownOpen, 'transparent': isOpenedInIFrame}">
+              <ul>
+                <li v-for="fiatCurrency in fiatCurrencies"><a class="nav-item" :class="{'font-white': isOpenedInIFrame}"@click="selectFiatCurrency(fiatCurrency)">{{ fiatCurrency }}</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <div class="price-section price-select-section" :class="{'price-section-iframe': isOpenedInIFrame}">
           <p class="price-tag price-select-tag">Current Price</p>
-          <div class="control">
+          <div class="control" :class="{'hide': isOpenedInIFrame}">
             <div class="select">
               <select v-model="selectedFiatCurrency" @change="selectFiatCurrency($event)">
                 <option v-for="fiatCurrency in fiatCurrencies">{{ fiatCurrency }}</option>
@@ -103,7 +120,7 @@ export default {
       }
     },
     selectFiatCurrency (fiatCurrencyEvent) {
-      this.selectedFiatCurrency = fiatCurrencyEvent.target.value
+      this.selectedFiatCurrency = fiatCurrencyEvent.target ? fiatCurrencyEvent.target.value : fiatCurrencyEvent
       this.axios.get(`https://api.coinmarketcap.com/v1/ticker/${this.selectedCryptoCurrency.id}/?convert=${this.selectedFiatCurrency}`)
         .then(cryptoCurrency => {
           this.toggleDropDown()
@@ -255,6 +272,79 @@ $large: 1024px;
     position: relative;
     padding-top: 25px;
 
+    .dropdown-section {
+      position: absolute;
+      right: 50px;
+
+      @media screen and (max-width: $medium) {
+        right: 20px;
+      }
+
+      .control {
+        text-align: center;
+
+        .button {
+          width: 81px;
+          color: #1e1335;
+          position: relative;
+
+          &:focus {
+            border-color: #FFF;
+          }
+
+          .arrow-icon {
+            position: absolute;
+            right: 5px;
+            bottom: 1px;
+            color: #fd6721;
+
+            icon {
+              position: absolute;
+              right: 5px;
+              bottom: 1px;
+            }
+          }
+        }
+
+        .box {
+          padding: 7px;
+          background-color: transparent;
+        }
+
+        .dropdown {
+          box-shadow: 0 0 3px 0 #fd6721;
+          display: none;
+          left: 0;
+          position: absolute;
+          top: 100%;
+          z-index: 1000;
+          height: 150px;
+          overflow-y: scroll;
+          background-color: #FFF;
+
+          ul {
+          }
+
+          &.is-open {
+            display: block;
+          }
+
+          .nav-item {
+            color: #1e1335;
+            -o-transition: .5s;
+            -ms-transition: .5s;
+            -moz-transition: .5s;
+            -webkit-transition: .5s;
+            transition: .5s;
+
+            &:hover {
+              color: #fd6721;
+            }
+          }
+        }
+      }
+    }
+
     .price-section {
       text-align: left;
       padding: 20px 0;
@@ -332,6 +422,10 @@ $large: 1024px;
 
 .hide {
   display: none !important;
+}
+
+.show {
+  display: block !important;
 }
 
 .no-padding {
