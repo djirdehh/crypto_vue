@@ -4,14 +4,14 @@
       <div v-for="cryptoCurrency in firstFiveCryptoCurrencies" class="column">
         <router-link :to="`/${cryptoCurrency.id}`">
           <div class="card">
-            <div class="card-image">
+            <div class="card-image" :class="{'card-image-iframe': isOpenedInIFrame}">
               <figure class="image is-4by3">
                 <img :src="`/static/${cryptoCurrency.id}_logo.png`">
               </figure>
             </div>
             <div class="card-content">
-              <p class="title is-5">{{ cryptoCurrency.name }}</p>
-              <p class="title price-title is-5">${{ getPriceUSD(cryptoCurrency) }} 
+              <p class="title is-5" :class="{'title-iframe': isOpenedInIFrame}">{{ cryptoCurrency.name }}</p>
+              <p class="title price-title is-5" :class="{'price-title-iframe': isOpenedInIFrame}">${{ getPriceUSD(cryptoCurrency) }} 
                 <span :class="{'positive-percent-change': cryptoCurrency.positivePercentChange, 'negative-percent-change': !cryptoCurrency.positivePercentChange}"> {{ getPercentChange(cryptoCurrency) }}% 
                   <icon class="arrow-up" name="arrow-up" height="9" width="9"></icon>
                   <icon class="arrow-down" name="arrow-down" height="9" width="9"></icon>
@@ -26,14 +26,14 @@
       <div v-for="cryptoCurrency in secondFiveCryptoCurrencies" class="column">
         <router-link :to="`/${cryptoCurrency.id}`">
           <div class="card">
-            <div class="card-image">
+            <div class="card-image" :class="{'card-image-iframe': isOpenedInIFrame}">
               <figure class="image is-4by3">
                 <img :src="`/static/${cryptoCurrency.id}_logo.png`">
               </figure>
             </div>
             <div class="card-content">
-              <p class="title is-5">{{ cryptoCurrency.name }}</p>
-              <p class="title price-title is-5">${{ getPriceUSD(cryptoCurrency) }}  
+              <p class="title is-5" :class="{'title-iframe': isOpenedInIFrame}">{{ cryptoCurrency.name }}</p>
+              <p class="title price-title is-5" :class="{'price-title-iframe': isOpenedInIFrame}">${{ getPriceUSD(cryptoCurrency) }}  
                 <span :class="{'positive-percent-change': cryptoCurrency.positivePercentChange, 'negative-percent-change': !cryptoCurrency.positivePercentChange}"> {{ getPercentChange(cryptoCurrency) }}% 
                   <icon class="arrow-up" name="arrow-up" height="9" width="9"></icon>
                   <icon class="arrow-down" name="arrow-down" height="9" width="9"></icon>
@@ -55,7 +55,13 @@ export default {
   name: 'bodyHero',
   data () {
     return {
-      sharedState: store.state
+      sharedState: store.state,
+      isOpenedInIFrame: false
+    }
+  },
+  created () {
+    if (window.self !== window.top) {
+      this.isOpenedInIFrame = true
     }
   },
   computed: {
@@ -121,20 +127,11 @@ $large: 1024px;
         }
       }
     }
+  }
 
-    .cryptoCurrency-image {
-      -webkit-animation-name: spinner; 
-      -webkit-animation-timing-function: linear; 
-      -webkit-animation-iteration-count: infinite; 
-      -webkit-animation-duration: 2s; 
-      animation-name: spinner; 
-      animation-timing-function: linear; 
-      animation-iteration-count: infinite; 
-      animation-duration: 2s; 
-      -webkit-transform-style: preserve-3d; 
-      -moz-transform-style: preserve-3d; 
-      -ms-transform-style: preserve-3d; 
-      transform-style: preserve-3d;
+  .card-image-iframe {
+    .image {
+      top: -23px;
     }
   }
 
@@ -148,27 +145,39 @@ $large: 1024px;
       right: 0;
     }
 
+    .title-iframe {
+      font-size: 1.0rem;
+      position: absolute;
+      bottom: 12%;
+      left: 0;
+      right: 0;
+    }
+
     .price-title {
       font-size: 1.0rem;
       font-weight: 600;
 
-        .positive-percent-change {
-          font-size: 0.9em;
-          color: #00d1b2;
+      .positive-percent-change {
+        font-size: 0.9em;
+        color: #00d1b2;
 
-          .arrow-down {
-            display: none;
-          }
+        .arrow-down {
+          display: none;
         }
+      }
 
-        .negative-percent-change {
-          font-size: 0.9em;
-          color: #ff3860;
+      .negative-percent-change {
+        font-size: 0.9em;
+        color: #ff3860;
 
-          .arrow-up {
-            display: none;
-          }
+        .arrow-up {
+          display: none;
         }
+      }
+    }
+
+    .price-title-iframe {
+      font-size: 0.9rem;
     }
   }
 }

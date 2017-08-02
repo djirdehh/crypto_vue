@@ -5,6 +5,12 @@
       "paper": "https://bitcoin.org/bitcoin.pdf",
       "github": "https://github.com/bitcoin"
    },
+   "bitcoin-cash": {
+      "description": "A decentralized peer-to-peer payment network that came into existence as a result of a hard fork from the original bitcoin blockchain. Bitcoin Cash (BCC) emerged after some of the leading backers disagreed on how to take Bitcoin further and are utilizing a new proposal that consists of a new transaction type and an increase in block limit size.",
+      "website": "",
+      "paper": "",
+      "github": ""
+   },
    "ethereum": {
       "description": "An open-source, public, blockchain-based computing platform that enables developers to build and deploy decentralized applications. Ether (ETH), the crypto token that fuels the Ethereum network acts as a tradeable cryptocurrency and is used to pay for transaction fees and services on the network.",
       "website": "https://www.ethereum.org/",

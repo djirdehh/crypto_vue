@@ -88,6 +88,6 @@ $large: 1024px;
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 </style>

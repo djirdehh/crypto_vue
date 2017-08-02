@@ -1,29 +1,29 @@
 <template>
     <div class="columns selected-section" :class="{'no-padding': isOpenedInIFrame}">
       <router-link to="/" class="nav-item">
-        <div class="return-action">
-          <icon name="chevron-left" class="arrow-left" height="22" width="22"></icon>
-          <p class="return-text">Return</p>
+        <div class="return-action" :class="{'return-action-iframe': isOpenedInIFrame}">
+          <icon name="chevron-left" class="arrow-left" :class="{'arrow-left-iframe': isOpenedInIFrame}" height="22" width="22"></icon>
+          <p class="return-text" :class="{'hide': isOpenedInIFrame}">Return</p>
         </div>
       </router-link>
       <div class="column is-7 image-section">
-        <img :src="`/static/${selectedCryptoCurrency.id}_large_logo.png`" class="cryptoCurrency-image"/>
-        <h1 class="cryptoCurrency-title">{{ selectedCryptoCurrency.name }}</h1>
-        <span class="tag is-primary">Rank {{ selectedCryptoCurrency.rank}}</span>
-        <p class="cryptoCurrency-description">{{ selectedCryptoCurrency.description }}</p>
+        <img :src="`/static/${selectedCryptoCurrency.id}_large_logo.png`" class="cryptoCurrency-image" :class="{'cryptoCurrency-image-iframe': isOpenedInIFrame}"/>
+        <h1 class="cryptoCurrency-title" :class="{'cryptoCurrency-title-iframe': isOpenedInIFrame}">{{ selectedCryptoCurrency.name }}</h1>
+        <span class="tag is-primary" :class="{'tag-iframe': isOpenedInIFrame}">Rank {{ selectedCryptoCurrency.rank}}</span>
+        <p class="cryptoCurrency-description" :class="{'cryptoCurrency-description-iframe': isOpenedInIFrame}">{{ selectedCryptoCurrency.description }}</p>
         <div class="icons-section">
           <span v-if="selectedCryptoCurrency.website" class="icon">
-            <a :href="selectedCryptoCurrency.website" target="_blank"><icon name="link" scale="2"></icon></a>
+            <a :href="selectedCryptoCurrency.website" target="_blank"><icon name="link" scale="1.5"></icon></a>
           </span>
           <span v-if="selectedCryptoCurrency.paper" class="icon">
-            <a :href="selectedCryptoCurrency.paper" target="_blank"><icon name="file-text" scale="2"></icon></a>
+            <a :href="selectedCryptoCurrency.paper" target="_blank"><icon name="file-text" scale="1.5"></icon></a>
           </span>
           <span v-if="selectedCryptoCurrency.github" class="icon">
-            <a :href="selectedCryptoCurrency.github" target="_blank"><icon name="github" scale="2"></icon></a>
+            <a :href="selectedCryptoCurrency.github" target="_blank"><icon name="github" scale="1.5"></icon></a>
           </span>
         </div>
       </div>
-      <div class="column information-section">
+      <div class="column information-section" :class="{'information-section-iframe': isOpenedInIFrame}">
         <div class="dropdown-section">
           <div class="control">
             <button class="button" type="button" @click="toggleDropDown">
@@ -41,21 +41,21 @@
             </div>
           </div>
         </div>
-        <div class="price-section">
+        <div class="price-section" :class="{'price-section-iframe': isOpenedInIFrame}">
           <p class="price-tag">Current Price</p>
-          <p class="price-amount">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedPrice }} 
+          <p class="price-amount" :class="{'price-amount-iframe': isOpenedInIFrame}">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedPrice }} 
             <span :class="{'positive-percent-change': selectedCryptoCurrency.positivePercentChange, 'negative-percent-change': !selectedCryptoCurrency.positivePercentChange}">
               ({{ selectedCryptoCurrency.percentChange24h }}%)
             </span>
           </p>
         </div>
-        <div class="price-section">
+        <div class="price-section" :class="{'price-section-iframe': isOpenedInIFrame}">
           <p class="price-tag">Circulating Supply</p>
-          <p class="price-amount">{{ selectedCryptoCurrency.selectedSupply }} {{ selectedCryptoCurrency.symbol }}</p>
+          <p class="price-amount" :class="{'price-amount-iframe': isOpenedInIFrame}">{{ selectedCryptoCurrency.selectedSupply }} {{ selectedCryptoCurrency.symbol }}</p>
         </div>
-        <div class="price-section">
+        <div class="price-section" :class="{'price-section-iframe': isOpenedInIFrame}">
           <p class="price-tag">Market Cap</p>
-          <p class="price-amount">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedMarketCap }} </p>
+          <p class="price-amount" :class="{'price-amount-iframe': isOpenedInIFrame}">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedMarketCap }} </p>
         </div>
       </div>
     </div>
@@ -167,6 +167,10 @@ $large: 1024px;
       padding-right: 5px;
     }
 
+    .arrow-left-iframe {
+      color: #fd6721;
+    }
+
     .return-text {
       font-size: 11px;
 
@@ -174,6 +178,10 @@ $large: 1024px;
         display: none;
       }
     }
+  }
+
+  .return-action-iframe {
+    top: -10px;
   }
 
   .image-section {
@@ -196,9 +204,21 @@ $large: 1024px;
       transform-style: preserve-3d;
     }
 
+    .cryptoCurrency-image-iframe {
+      height: 80px;
+    }
+
     .cryptoCurrency-title {
       font-size: 20px;
       font-weight: 600;
+    }
+
+    .cryptoCurrency-title-iframe {
+      font-size: 16px;
+    }
+
+    .tag-iframe {
+      font-size: 0.63rem;
     }
 
     .cryptoCurrency-description {
@@ -215,7 +235,17 @@ $large: 1024px;
       }
     }
 
+    .cryptoCurrency-description-iframe {
+      font-size: 11px;
+      padding-top: 10px;
+      padding-bottom: 15px;
+      line-height: 1.5;
+      max-width: 425px;
+    }
+
     .icons-section {
+      height: 0px;
+
       .icon {
         margin: 0px 30px;
         -o-transition: .5s;
@@ -334,8 +364,24 @@ $large: 1024px;
           font-size: 30px;
         }
       }
+
+      .price-amount-iframe {
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+
+    .price-section-iframe {
+      padding: 10px 0;
     }
   }
+
+  .information-section-iframe {
+  }
+}
+
+.hide {
+  display: none !important;
 }
 
 .no-padding {
