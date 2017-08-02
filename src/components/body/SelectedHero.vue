@@ -24,25 +24,15 @@
         </div>
       </div>
       <div class="column information-section" :class="{'information-section-iframe': isOpenedInIFrame}">
-        <div class="dropdown-section">
+        <div class="price-section price-select-section" :class="{'price-section-iframe': isOpenedInIFrame}">
+          <p class="price-tag price-select-tag">Current Price</p>
           <div class="control">
-            <button class="button" type="button" @click="toggleDropDown">
-              {{ selectedFiatCurrency }}
-              <span class="arrow-icon">
-                <icon v-if="!dropDownOpen" name="caret-down"></icon>
-                <icon v-if="dropDownOpen" name="caret-up"></icon>
-              </span>
-            </button>
-
-            <div class="box dropdown" :class="{'is-open': dropDownOpen, 'transparent': isOpenedInIFrame}">
-              <ul>
-                <li v-for="fiatCurrency in fiatCurrencies"><a class="nav-item" :class="{'font-white': isOpenedInIFrame}"@click="selectFiatCurrency(fiatCurrency)">{{ fiatCurrency }}</a></li>
-              </ul>
+            <div class="select">
+              <select v-model="selectedFiatCurrency" @change="selectFiatCurrency($event)">
+                <option v-for="fiatCurrency in fiatCurrencies">{{ fiatCurrency }}</option>
+              </select>
             </div>
           </div>
-        </div>
-        <div class="price-section" :class="{'price-section-iframe': isOpenedInIFrame}">
-          <p class="price-tag">Current Price</p>
           <p class="price-amount" :class="{'price-amount-iframe': isOpenedInIFrame}">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedPrice }} 
             <span :class="{'positive-percent-change': selectedCryptoCurrency.positivePercentChange, 'negative-percent-change': !selectedCryptoCurrency.positivePercentChange}">
               ({{ selectedCryptoCurrency.percentChange24h }}%)
@@ -112,8 +102,8 @@ export default {
         this.selectedCryptoCurrency = this.manipulateCryptoCurrency(cryptoCurrency)
       }
     },
-    selectFiatCurrency (fiatCurrency) {
-      this.selectedFiatCurrency = fiatCurrency
+    selectFiatCurrency (fiatCurrencyEvent) {
+      this.selectedFiatCurrency = fiatCurrencyEvent.target.value
       this.axios.get(`https://api.coinmarketcap.com/v1/ticker/${this.selectedCryptoCurrency.id}/?convert=${this.selectedFiatCurrency}`)
         .then(cryptoCurrency => {
           this.toggleDropDown()
@@ -265,79 +255,6 @@ $large: 1024px;
     position: relative;
     padding-top: 25px;
 
-    .dropdown-section {
-      position: absolute;
-      right: 50px;
-
-      @media screen and (max-width: $medium) {
-        right: 20px;
-      }
-
-      .control {
-        text-align: center;
-
-        .button {
-          width: 81px;
-          color: #1e1335;
-          position: relative;
-
-          &:focus {
-            border-color: #FFF;
-          }
-
-          .arrow-icon {
-            position: absolute;
-            right: 5px;
-            bottom: 1px;
-            color: #fd6721;
-
-            icon {
-              position: absolute;
-              right: 5px;
-              bottom: 1px;
-            }
-          }
-        }
-
-        .box {
-          padding: 7px;
-          background-color: transparent;
-        }
-
-        .dropdown {
-          box-shadow: 0 0 3px 0 #fd6721;
-          display: none;
-          left: 0;
-          position: absolute;
-          top: 100%;
-          z-index: 1000;
-          height: 150px;
-          overflow-y: scroll;
-          background-color: #FFF;
-
-          ul {
-          }
-
-          &.is-open {
-            display: block;
-          }
-
-          .nav-item {
-            color: #1e1335;
-            -o-transition: .5s;
-            -ms-transition: .5s;
-            -moz-transition: .5s;
-            -webkit-transition: .5s;
-            transition: .5s;
-
-            &:hover {
-              color: #fd6721;
-            }
-          }
-        }
-      }
-    }
-
     .price-section {
       text-align: left;
       padding: 20px 0;
@@ -347,6 +264,33 @@ $large: 1024px;
       }
 
       .price-tag {
+      }
+
+      .price-select-tag {
+        display: inline-block;
+      }
+
+      .control {
+        display: inline-block;
+        float: right;
+        margin-right: 30px;
+        font-size: 0.75rem;
+        .select {
+          select {
+            padding-right: 1.2em;
+          }
+          &:after {
+            right: 0.55em;
+            color: #fd6721;
+          }
+        }
+
+        @media screen and (max-width: $medium) {
+          display: block;
+          text-align: center;
+          float: none;
+          margin-right: 0px;
+        }
       }
 
       .price-amount {
@@ -368,6 +312,12 @@ $large: 1024px;
       .price-amount-iframe {
         font-size: 20px;
         font-weight: 600;
+      }
+    }
+
+    .price-select-section {
+      @media screen and (min-width: $medium) {
+        max-width: 485px;
       }
     }
 
