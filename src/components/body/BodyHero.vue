@@ -146,7 +146,7 @@ $large: 1024px;
     }
 
     .title-iframe {
-      font-size: 1.0rem;
+      font-size: 0.9rem;
       position: absolute;
       bottom: 12%;
       left: 0;

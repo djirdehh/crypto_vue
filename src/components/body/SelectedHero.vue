@@ -29,8 +29,8 @@
             <button class="button" type="button" @click="toggleDropDown">
               {{ selectedFiatCurrency }}
               <span class="arrow-icon">
-                <icon v-if="!dropDownOpen" name="caret-down"></icon>
-                <icon v-if="dropDownOpen" name="caret-up"></icon>
+                <icon v-if="!dropDownOpen" name="caret-down" height="13"></icon>
+                <icon v-if="dropDownOpen" name="caret-up" height="13"></icon>
               </span>
             </button>
 
@@ -284,7 +284,8 @@ $large: 1024px;
         text-align: center;
 
         .button {
-          width: 81px;
+          font-size: 11px;
+          width: 50px;
           color: #1e1335;
           position: relative;
 
@@ -294,15 +295,9 @@ $large: 1024px;
 
           .arrow-icon {
             position: absolute;
-            right: 5px;
+            right: 2px;
             bottom: 1px;
             color: #fd6721;
-
-            icon {
-              position: absolute;
-              right: 5px;
-              bottom: 1px;
-            }
           }
         }
 
@@ -312,6 +307,7 @@ $large: 1024px;
         }
 
         .dropdown {
+          width: 50px;
           box-shadow: 0 0 3px 0 #fd6721;
           display: none;
           left: 0;
@@ -330,6 +326,7 @@ $large: 1024px;
           }
 
           .nav-item {
+            font-size: 11px;
             color: #1e1335;
             -o-transition: .5s;
             -ms-transition: .5s;
@@ -364,14 +361,16 @@ $large: 1024px;
         display: inline-block;
         float: right;
         margin-right: 30px;
-        font-size: 0.75rem;
+        font-size: 0.80rem;
         .select {
           select {
             padding-right: 1.2em;
           }
           &:after {
             right: 0.55em;
-            color: #fd6721;
+            border: 1px solid #fd6721;
+            border-top: 0;
+            border-right: 0;
           }
         }
 
