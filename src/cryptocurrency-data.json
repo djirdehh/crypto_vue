@@ -167,6 +167,12 @@
       "paper": "https://www.stellar.org/papers/stellar-consensus-protocol.pdf",
       "github": "https://github.com/stellar"
    },  
+   "decred": {
+      "description": "Decred is an open and progressive cryptocurrency with a system of community-based governance integrated into its blockchain.",
+      "website": "https://decred.org",
+      "paper": "https://decred.org/research/buterin2014.pdf",
+      "github": "https://github.com/decred"
+   },
    "undefined": {
       "description": "Hmmm. Though the price, circulating supply and market cap values are accurate - there doesn't appear to be any detailed data captured on this cryptocurrency. Should be updated in due time!",
       "website": "",
