@@ -17,6 +17,7 @@ export const store = {
       this.state.cryptoCurrencies = response.data
     })
     axios.get(getUrl2).then((response) => {
+      // attempt to make decred load every time, occasionally decred loads first and does not appear
       if (this.state.cryptoCurrencies.length === 9) {
         this.state.cryptoCurrencies.push(response.data[0])
         this.state.cryptoCurrencies.forEach(cryptoCurrency => this.addImageAndDescription(cryptoCurrency))
