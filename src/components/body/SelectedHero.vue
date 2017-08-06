@@ -53,6 +53,13 @@
           <p class="price-amount" :class="{'price-amount-iframe': isOpenedInIFrame}">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedPrice }} 
             <span :class="{'positive-percent-change': selectedCryptoCurrency.positivePercentChange, 'negative-percent-change': !selectedCryptoCurrency.positivePercentChange}">
               ({{ selectedCryptoCurrency.percentChange24h }}%)
+              <sub>
+                <tooltip label="24h percent change" placement="bottom">
+                  <a className="is-primary tooltip">
+                    <icon name="info-circle" height="15" width="15"></icon>
+                  </a>
+                </tooltip>
+              </sub>
             </span>
           </p>
         </div>
@@ -393,6 +400,13 @@ $large: 1024px;
           color: #ff3860;
         }
 
+        .tooltip {
+          color: #FFF;
+          text-align: center;
+          font-size: 10px;
+          font-weight: 600;
+        }
+
         @media screen and (max-width: $medium) {
           font-size: 30px;
         }
@@ -406,7 +420,6 @@ $large: 1024px;
 
     .price-select-section {
       @media screen and (min-width: $medium) {
-        max-width: 485px;
       }
     }
 

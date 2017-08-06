@@ -5,6 +5,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
+import Tooltip from 'vue-bulma-tooltip'
 import App from './App'
 import router from './routes.js'
 
@@ -12,6 +13,7 @@ import {store} from './store.js'
 
 Vue.use(VueAxios, axios)
 Vue.component('icon', Icon)
+Vue.component('tooltip', Tooltip)
 
 Vue.config.productionTip = false
 
