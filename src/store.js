@@ -11,10 +11,19 @@ export const store = {
     cryptoCurrencies: []
   },
   getCryptoCurrencies () {
-    const getUrl = 'https://api.coinmarketcap.com/v1/ticker/?limit=10'
-    axios.get(getUrl).then((response) => {
+    const getUrl1 = 'https://api.coinmarketcap.com/v1/ticker/?limit=9'
+    const getUrl2 = 'https://api.coinmarketcap.com/v1/ticker/decred/'
+    axios.get(getUrl1).then((response) => {
       this.state.cryptoCurrencies = response.data
-      this.state.cryptoCurrencies.forEach(cryptoCurrency => this.addImageAndDescription(cryptoCurrency))
+    })
+    axios.get(getUrl2).then((response) => {
+      // attempt to make decred load every time, occasionally decred loads first and does not appear
+      if (this.state.cryptoCurrencies.length === 9) {
+        this.state.cryptoCurrencies.push(response.data[0])
+        this.state.cryptoCurrencies.forEach(cryptoCurrency => this.addImageAndDescription(cryptoCurrency))
+      } else {
+        this.getCryptoCurrencies()
+      }
     })
   },
   addImageAndDescription (cryptoCurrency) {

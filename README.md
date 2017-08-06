@@ -3,6 +3,10 @@
 <img src="http://i.imgur.com/CSu35WO.png" width="250"/>
 </p>
 
+forked for decred support
+
+TODO: add selectable crypto currency
+
 <p>
 <a href="">
   <img alt="first release" src="https://img.shields.io/badge/release-v1.0-brightgreen.svg" />
