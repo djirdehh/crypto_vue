@@ -8,6 +8,7 @@ const cryptoCurrencyData = require('./cryptocurrency-data.json')
 
 export const store = {
   state: {
+    totalMarketCapUSD: 0,
     cryptoCurrencies: []
   },
   getCryptoCurrencies () {
@@ -27,5 +28,12 @@ export const store = {
 
     cryptoCurrency.positivePercentChange = !(cryptoCurrency.percent_change_24h.indexOf('-') > -1)
     cryptoCurrency.percentChange24h = cryptoCurrency.percent_change_24h.replace(/^-/, '')
+  },
+  getTotalMarketCapUSD () {
+    const getUrl = 'https://api.coinmarketcap.com/v1/global/'
+    axios.get(getUrl).then((response) => {
+      const globalData = response.data
+      this.state.totalMarketCapUSD = globalData.total_market_cap_usd
+    })
   }
 }

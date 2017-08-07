@@ -55,7 +55,7 @@
               ({{ selectedCryptoCurrency.percentChange24h }}%)
               <sub>
                 <tooltip label="24h percent change" placement="bottom">
-                  <a className="is-primary tooltip">
+                  <a class="is-primary percent-tooltip">
                     <icon name="info-circle" height="15" width="15"></icon>
                   </a>
                 </tooltip>
@@ -69,7 +69,25 @@
         </div>
         <div class="price-section" :class="{'price-section-iframe': isOpenedInIFrame}">
           <p class="price-tag">Market Cap</p>
-          <p class="price-amount" :class="{'price-amount-iframe': isOpenedInIFrame}">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedMarketCap }} </p>
+          <div class="">
+            <div class="price-amount market-cap-price-amount" :class="{'price-amount-iframe': isOpenedInIFrame}">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedMarketCap }}
+              <div class="doughnut-chart" :class="{'hide': isOpenedInIFrame}">
+                <tooltip :label="percentageOfMarketCap" placement="bottom">
+                  <doughnut-chart 
+                    :data="{
+                      labels:['Total Market Cap USD', `Selected Crypto Currency Market Cap`], 
+                      datasets:[
+                        { data: [totalMarketCapUSD, selectedCryptoCurrencyMarketCap],
+                          backgroundColor: [
+                            '#370628',
+                            '#fd6721'
+                          ]
+                        }]}" :width="125" :height="50">
+                  </doughnut-chart>
+                </tooltip>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -104,6 +122,18 @@ export default {
   watch: {
     $route () {
       this.selectCryptoCurrency()
+    }
+  },
+  computed: {
+    totalMarketCapUSD () {
+      return this.sharedState.totalMarketCapUSD
+    },
+    selectedCryptoCurrencyMarketCap () {
+      return Number(this.selectedCryptoCurrency.market_cap_usd)
+    },
+    percentageOfMarketCap () {
+      const percentageOfMarketCap = Math.round((this.selectedCryptoCurrency.market_cap_usd / this.sharedState.totalMarketCapUSD) * 100)
+      return `~ ${percentageOfMarketCap}% of the global cryptocurrency market cap!`
     }
   },
   methods: {
@@ -400,16 +430,29 @@ $large: 1024px;
           color: #ff3860;
         }
 
-        .tooltip {
+        .percent-tooltip {
           color: #FFF;
           text-align: center;
           font-size: 10px;
-          font-weight: 600;
+          font-weight: 500;
+          cursor: initial;
         }
 
         @media screen and (max-width: $medium) {
           font-size: 30px;
         }
+      }
+
+      .market-cap-price-amount {
+        display: inline-block;
+      }
+
+      .doughnut-chart {
+        display: block;
+        text-align: center;
+        font-weight: 500;
+        width: 50px;
+        margin: 0 auto;
       }
 
       .price-amount-iframe {
