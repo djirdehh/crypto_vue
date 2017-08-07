@@ -71,18 +71,20 @@
           <p class="price-tag">Market Cap</p>
           <div class="">
             <div class="price-amount market-cap-price-amount" :class="{'price-amount-iframe': isOpenedInIFrame}">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedMarketCap }}
-              <div class="doughnut-chart" :class="{'hide': isOpenedInIFrame}">
+              <div class="doughnut-chart" :class="{'hide': isOpenedInIFrame || !sharedState.totalMarketCapUSD}">
                 <tooltip :label="percentageOfMarketCap" placement="bottom">
-                  <doughnut-chart 
+                  <doughnut-chart
                     :data="{
                       labels:['Total Market Cap USD', `Selected Crypto Currency Market Cap`], 
                       datasets:[
-                        { data: [totalMarketCapUSD, selectedCryptoCurrencyMarketCap],
+                        { data: [globalMarketCapUSD, selectedCryptoCurrencyMarketCap],
                           backgroundColor: [
                             '#370628',
                             '#fd6721'
                           ]
-                        }]}" :width="125" :height="50">
+                        }]}" 
+                    :width="125" 
+                    :height="50">
                   </doughnut-chart>
                 </tooltip>
               </div>
@@ -115,6 +117,8 @@ export default {
   },
   created () {
     this.selectCryptoCurrency()
+    this.getGlobalMarketCapUSD()
+
     if (window.self !== window.top) {
       this.isOpenedInIFrame = true
     }
@@ -122,10 +126,11 @@ export default {
   watch: {
     $route () {
       this.selectCryptoCurrency()
+      this.getGlobalMarketCapUSD()
     }
   },
   computed: {
-    totalMarketCapUSD () {
+    globalMarketCapUSD () {
       return this.sharedState.totalMarketCapUSD
     },
     selectedCryptoCurrencyMarketCap () {
