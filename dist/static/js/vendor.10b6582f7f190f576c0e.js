@@ -31466,8 +31466,8 @@ module.exports = g;
     type: String,
     size: {
       type: String,
-      default: 'medium',
-      validator: value => ['small', 'medium', 'large'].includes(value)
+      default: 'medium'
+      // validator: value => ['small', 'medium', 'large'].includes(value)
     },
     always: Boolean,
     noAnimate: Boolean,
@@ -31496,7 +31496,6 @@ module.exports = g;
     }
 
     const rawChild = children[0]
-
 
     rawChild.data.attrs = rawChild.data.attrs || {}
     Object.assign(rawChild.data.attrs, {
@@ -64347,4 +64346,4 @@ function applyToTag (styleElement, obj) {
 
 /***/ })
 ]);
-//# sourceMappingURL=vendor.2213db2975c0151fb7d7.js.map
+//# sourceMappingURL=vendor.10b6582f7f190f576c0e.js.map
