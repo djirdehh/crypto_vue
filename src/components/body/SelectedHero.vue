@@ -54,11 +54,9 @@
             <span :class="{'positive-percent-change': selectedCryptoCurrency.positivePercentChange, 'negative-percent-change': !selectedCryptoCurrency.positivePercentChange}">
               ({{ selectedCryptoCurrency.percentChange24h }}%)
               <sub>
-                <tooltip label="24h percent change" placement="bottom">
-                  <a class="is-primary percent-tooltip">
-                    <icon name="info-circle" height="15" width="15"></icon>
-                  </a>
-                </tooltip>
+                <a class="is-primary percent-tooltip tooltip"><icon name="info-circle" height="15" width="15"></icon>
+                  <span class="tooltiptext">24h percent change</span>
+                </a>
               </sub>
             </span>
           </p>
@@ -71,22 +69,21 @@
           <p class="price-tag">Market Cap</p>
           <div class="">
             <div class="price-amount market-cap-price-amount" :class="{'price-amount-iframe': isOpenedInIFrame}">{{ selectedFiatCurrency }} {{ selectedCryptoCurrency.selectedMarketCap }}
-              <div class="doughnut-chart" :class="{'hide': isOpenedInIFrame || !sharedState.totalMarketCapUSD}">
-                <tooltip :label="percentageOfMarketCap" placement="bottom">
-                  <doughnut-chart
-                    :data="{
-                      labels:['Total Market Cap USD', `Selected Crypto Currency Market Cap`], 
-                      datasets:[
-                        { data: [globalMarketCapUSD, selectedCryptoCurrencyMarketCap],
-                          backgroundColor: [
-                            '#370628',
-                            '#fd6721'
-                          ]
-                        }]}" 
-                    :width="125" 
-                    :height="50">
-                  </doughnut-chart>
-                </tooltip>
+              <div class="doughnut-chart doughnut-tooltip tooltip" :class="{'hide': isOpenedInIFrame || !sharedState.totalMarketCapUSD}">
+                <doughnut-chart
+                  :data="{
+                    labels:['Total Market Cap USD', `Selected Crypto Currency Market Cap`], 
+                    datasets:[
+                      { data: [globalMarketCapUSD, selectedCryptoCurrencyMarketCap],
+                        backgroundColor: [
+                          '#370628',
+                          '#fd6721'
+                        ]
+                      }]}" 
+                  :width="125" 
+                  :height="50">
+                </doughnut-chart>
+                <span class="tooltiptext">{{ percentageOfMarketCap }}</span>
               </div>
             </div>
           </div>
@@ -117,7 +114,6 @@ export default {
   },
   created () {
     this.selectCryptoCurrency()
-    this.getGlobalMarketCapUSD()
 
     if (window.self !== window.top) {
       this.isOpenedInIFrame = true
@@ -126,7 +122,6 @@ export default {
   watch: {
     $route () {
       this.selectCryptoCurrency()
-      this.getGlobalMarketCapUSD()
     }
   },
   computed: {
@@ -477,6 +472,41 @@ $large: 1024px;
   }
 
   .information-section-iframe {
+  }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+
+  &:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #383838;
+    font-size: 11px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+  }
+}
+
+.doughnut-tooltip {
+  .tooltiptext {
+    top: 110%;
   }
 }
 
