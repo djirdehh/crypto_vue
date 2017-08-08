@@ -53,3 +53,5 @@ Head over to <a href="https://github.com/vuejs/vue-cli">vue-cli</a> to see a lis
 
 ## Appreciation :)
 * [housseindjirdeh](https://github.com/housseindjirdeh)
+* [lidonis](https://github.com/lidonis)
+* [captainswain](https://github.com/captainswain)
