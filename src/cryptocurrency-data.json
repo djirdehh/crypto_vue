@@ -11,6 +11,12 @@
       "paper": "",
       "github": ""
    },
+   "bitcoin-gold": {
+      "description": "A hard-fork of the original Bitcoin blockchain, Bitcoin Gold aims to implement features with a new proof-of-work algorithm that allow for further decentralization and replay protection.",
+      "website": "https://bitcoingold.org/",
+      "paper": "",
+      "github": "https://github.com/BTCGPU/BTCGPU"
+   },
    "ethereum": {
       "description": "An open-source, public, blockchain-based computing platform that enables developers to build and deploy decentralized applications. Ether (ETH), the crypto token that fuels the Ethereum network acts as a tradeable cryptocurrency and is used to pay for transaction fees and services on the network.",
       "website": "https://www.ethereum.org/",
