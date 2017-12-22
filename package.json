@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "start": "node build/dev-server.js",
     "build": "node build/build.js && sw-precache --verbose --config=sw-precache-config.js",
+    "deploy": "git subtree push --prefix dist heroku master",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
