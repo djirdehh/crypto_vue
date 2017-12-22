@@ -6,6 +6,8 @@ import SelectedHero from './components/body/SelectedHero.vue'
 
 Vue.use(VueRouter)
 
+console.log(VueRouter)
+
 export default new VueRouter({
   mode: 'history',
   routes: [

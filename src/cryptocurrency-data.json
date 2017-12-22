@@ -172,7 +172,13 @@
       "website": "https://www.stellar.org/",
       "paper": "https://www.stellar.org/papers/stellar-consensus-protocol.pdf",
       "github": "https://github.com/stellar"
-   },  
+   },
+   "cardano": {
+      "description": "A decentralized blockchain application that aims to develop a research-driven smart contract platform as well as the digital currency named Ada.",
+      "website": "https://www.cardanohub.org/en/home/",
+      "paper": "https://www.cardanohub.org/en/academic-papers/",
+      "github": "https://github.com/input-output-hk/cardano-sl/"
+   },
    "undefined": {
       "description": "Hmmm. Though the price, circulating supply and market cap values are accurate - there doesn't appear to be any detailed data captured on this cryptocurrency. Should be updated in due time!",
       "website": "",
